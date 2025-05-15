@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+
+# Logs
+logs/*
+*.log
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Project specific
+Miniconda3-latest-MacOSX-arm64.sh
+test_blog_output.txt
