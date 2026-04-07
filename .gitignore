@@ -29,3 +29,6 @@ tools/Miniconda3-latest-MacOSX-arm64.sh
 
 # Debug files (optional, can be commented to track test files)
 debug/
+userdata/
+docs/
+examples/

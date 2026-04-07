@@ -7,36 +7,49 @@ Handles converting HTML to PDF and saving it.
 """
 
 import os
-import re
-from xhtml2pdf import pisa
+import asyncio
+from playwright.async_api import async_playwright
 from src.output_handlers.base_handler import OutputHandler
 from src.logger import logger
 
 
 class PdfOutputHandler(OutputHandler):
-    """Handler for PDF output format."""
+    """Handler for PDF output format using Playwright."""
     
     def __init__(self, app_root, save_mapping_func):
         self.app_root = app_root
         self.save_mapping_func = save_mapping_func
     
-    def _clean_css_for_pdf(self, html_content):
+    def _html_to_pdf_sync(self, html_content, output_path):
         """
-        清理 HTML 中 xhtml2pdf 不支持的 CSS3 特性（如 @keyframes, transform 等）
+        使用 Playwright 将 HTML 转换为 PDF（同步包装器）
         """
-        # 移除 @keyframes 块（处理多行情况）
-        html_content = re.sub(r'@keyframes\s+[\w-]+\s*\{.*?\}', '', html_content, flags=re.DOTALL)
-        # 移除 @media 查询（xhtml2pdf 支持有限，且容易引发解析错误）
-        html_content = re.sub(r'@media\s+[\w\s()]+\s*\{.*?\}', '', html_content, flags=re.DOTALL)
-        # 移除 animation 属性
-        html_content = re.sub(r'animation\s*:[^;]*;', '', html_content)
-        html_content = re.sub(r'-webkit-animation\s*:[^;]*;', '', html_content)
-        # 移除 transform 属性 (xhtml2pdf 支持有限，容易报错)
-        html_content = re.sub(r'transform\s*:[^;]*;', '', html_content)
-        html_content = re.sub(r'-webkit-transform\s*:[^;]*;', '', html_content)
-        # 移除 transition
-        html_content = re.sub(r'transition\s*:[^;]*;', '', html_content)
-        return html_content
+        async def convert():
+            async with async_playwright() as p:
+                # 启动浏览器
+                browser = await p.chromium.launch(headless=True)
+                page = await browser.new_page()
+                
+                # 设置内容
+                await page.set_content(html_content, wait_until='networkidle')
+                
+                # 生成 PDF
+                await page.pdf(
+                    path=output_path,
+                    format='A4',
+                    print_background=True,  # 打印背景色和图片
+                    margin={
+                        'top': '20mm',
+                        'right': '20mm',
+                        'bottom': '20mm',
+                        'left': '20mm'
+                    }
+                )
+                
+                await browser.close()
+        
+        # 运行异步函数
+        asyncio.run(convert())
 
     def handle(self, content, title, article_id, filename=None):
         """
@@ -57,16 +70,15 @@ class PdfOutputHandler(OutputHandler):
             
             filepath = os.path.join(userfiles_dir, filename)
             
-            # 预处理 HTML：清理不兼容的 CSS
-            cleaned_content = self._clean_css_for_pdf(content)
+            # 使用 Playwright 将 HTML 转换为 PDF
+            logger.info("开始使用 Playwright 生成 PDF...")
+            self._html_to_pdf_sync(content, filepath)
             
-            # 转换 HTML 为 PDF
-            with open(filepath, "w+b") as result_file:
-                pisa_status = pisa.CreatePDF(cleaned_content, dest=result_file)
-            
-            if pisa_status.err:
-                logger.error("xhtml2pdf 转换过程中出现错误")
-                raise Exception("PDF generation failed due to content errors")
+            # 检查文件是否真的生成了内容
+            file_size = os.path.getsize(filepath)
+            if file_size == 0:
+                logger.error("PDF 文件生成失败：文件大小为 0")
+                raise Exception("PDF file is empty")
             
             logger.info(f"PDF file saved: {filepath}")
             

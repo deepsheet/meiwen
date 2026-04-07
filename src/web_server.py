@@ -559,12 +559,20 @@ def serve_article(article_id):
         # 如果不是以 static/或 userdata/开头，直接使用 dirname
         directory = os.path.dirname(article_path)
     
+    # 根据文件扩展名设置正确的 MIME 类型
+    if filename.endswith('.pdf'):
+        mimetype = 'application/pdf'
+    elif filename.endswith('.html'):
+        mimetype = 'text/html; charset=utf-8'
+    else:
+        mimetype = 'application/octet-stream'
+    
     # 返回文件
     logger.info(f"访问文章：{article_id} -> {directory}/{filename}")
     return send_from_directory(
         directory,
         filename,
-        mimetype='text/html; charset=utf-8'
+        mimetype=mimetype
     )
 
 
@@ -1717,15 +1725,18 @@ def format_html_api():
         # 生成文章 ID（需要在格式化前生成，以便嵌入到 HTML 中）
         article_id = generate_article_id()
         
+        # 根据输出格式决定是否添加下载按钮
+        output_format = data.get('output_format', 'url')
+        include_download_button = (output_format != 'pdf')  # PDF 格式不需要下载按钮
+        
         # 调用 HTML 格式化服务（使用配置文件中的模型）
         formatter = HTMLFormatter(base_url=base_url, model_name=CURRENT_MODEL, language=lang)
-        formatted_html = formatter.format_article(content, title, content_strategy=content_strategy, style=style, extra_requirements=extra_requirements, include_download_button=True, article_id=article_id)
+        formatted_html = formatter.format_article(content, title, content_strategy=content_strategy, style=style, extra_requirements=extra_requirements, include_download_button=include_download_button, article_id=article_id)
         
         # 获取项目根目录
         project_root = os.path.dirname(app.root_path)
         
         # 根据输出格式选择处理器
-        output_format = data.get('output_format', 'url')
         
         if output_format == 'pdf':
             handler = PdfOutputHandler(project_root, save_article_mapping)

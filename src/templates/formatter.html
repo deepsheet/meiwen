@@ -207,15 +207,15 @@
                 <div class="inline-setting-row">
                     <label class="inline-label">{{ t('label_beauty_mode') }}</label>
                     <div class="mode-selector-inline">
-                        <label class="mode-option-inline">
+                        <label class="mode-option-inline option-label" title="严格保持原文内容和结构，仅进行排版美化">
                             <input type="radio" name="beautyMode" value="strict" checked>
                             <span>{{ t('mode_strict') }}</span>
                         </label>
-                        <label class="mode-option-inline">
+                        <label class="mode-option-inline option-label" title="在原文基础上优化表达，适当调整语句使其更流畅">
                             <input type="radio" name="beautyMode" value="interpret">
                             <span>{{ t('mode_interpret') }}</span>
                         </label>
-                        <label class="mode-option-inline">
+                        <label class="mode-option-inline option-label" title="基于原文主题进行内容丰富和扩展，增加细节和描述">
                             <input type="radio" name="beautyMode" value="expand">
                             <span>{{ t('mode_expand') }}</span>
                         </label>
@@ -344,11 +344,11 @@
                         <div class="inline-setting-row">
                             <label class="inline-label">{{ t('label_output_format') }}</label>
                             <div class="output-format-selector-inline">
-                                <label class="format-option-inline">
+                                <label class="format-option-inline option-label" title="生成在线网页链接，方便分享和访问（默认）">
                                     <input type="radio" name="outputFormat" value="url" checked>
                                     <span>{{ t('format_url') }}</span>
                                 </label>
-                                <label class="format-option-inline">
+                                <label class="format-option-inline option-label" title="生成 PDF 文件，适合打印和离线保存">
                                     <input type="radio" name="outputFormat" value="pdf">
                                     <span>{{ t('format_pdf') }}</span>
                                 </label>
