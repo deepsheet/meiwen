@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2026爆火AI"小龙虾"：真正能干活的数字员工</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #000;
+      line-height: 1.8;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    
+    /* 粗体标题 */
+    .brutal-header {
+      text-align: center;
+      margin-bottom: 100px;
+      border: 5px solid #000;
+      padding: 60px 40px;
+      position: relative;
+    }
+    
+    .brutal-header::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: -15px;
+      bottom: -15px;
+      background: #000;
+      z-index: -1;
+    }
+    
+    h1 {
+      font-size: clamp(3.5em, 8vw, 6em);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -3px;
+      text-transform: uppercase;
+    }
+    
+    .header-sub {
+      font-size: 1.5em;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+    
+    /*  brutal卡片 */
+    .brutal-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+    
+    .brutal-card {
+      background: #fff;
+      border: 4px solid #000;
+      padding: 45px;
+      position: relative;
+      transition: all 0.3s;
+      box-shadow: 8px 8px 0 #000;
+    }
+    
+    .brutal-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 #000;
+    }
+    
+    .card-number-badge {
+      position: absolute;
+      top: -20px;
+      left: 30px;
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-weight: 900;
+    }
+    
+    .card-icon-big {
+      font-size: 4em;
+      margin-bottom: 25px;
+      margin-top: 20px;
+      display: block;
+    }
+    
+    .card-title-bold {
+      font-size: 2em;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+    
+    .card-text-plain {
+      font-size: 1.15em;
+      line-height: 2;
+      color: #333;
+    }
+    
+    .bold-underline {
+      font-weight: 900;
+      border-bottom: 4px solid #000;
+      padding-bottom: 2px;
+    }
+    
+    /* 引用框 */
+    .quote-brutal {
+      background: #000;
+      color: #fff;
+      padding: 60px;
+      margin: 80px 0;
+      border: 5px solid #000;
+      position: relative;
+      box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+    
+    .quote-brutal::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 10em;
+      color: rgba(255, 255, 255, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .quote-text-main {
+      font-size: 2.5em;
+      font-weight: 900;
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -1px;
+    }
+    
+    /* 底部按钮 */
+    footer {
+      text-align: center;
+      margin-top: 100px;
+    }
+    
+    .btn-brutal {
+      display: inline-block;
+      padding: 25px 60px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.3em;
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0 #000;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    .btn-brutal:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 #000;
+      background: #000;
+      color: #fff;
+    }
+    
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 60px 25px;
+      }
+      
+      .brutal-header {
+        padding: 50px 30px;
+      }
+      
+      .brutal-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .quote-brutal {
+        padding: 50px 35px;
+      }
+      
+      .quote-text-main {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="brutal-header">
+      <h1>🦞 AI小龙虾</h1>
+      <p class="header-sub">真正能干活的数字员工</p>
+    </header>
+
+    <section class="brutal-cards">
+      <article class="brutal-card">
+        <div class="card-number-badge">01</div>
+        <span class="card-icon-big">🚀</span>
+        <h2 class="card-title-bold">现象级爆火</h2>
+        <p class="card-text-plain">
+          2026年开春，<span class="bold-underline">OpenClaw</span>彻底刷屏科技圈。从极客玩具到全民"养虾"热潮，完成现象级进化。
+        </p>
+      </article>
+
+      <article class="brutal-card">
+        <div class="card-number-badge">02</div>
+        <span class="card-icon-big">🧠</span>
+        <h2 class="card-title-bold">智能体本质</h2>
+        <p class="card-text-plain">
+          非聊天机器人，而是<span class="bold-underline">开源AI智能体（Agent）</span>。如"贾维斯"般直接操作系统，执行各类任务。
+        </p>
+      </article>
+
+      <article class="brutal-card">
+        <div class="card-number-badge">03</div>
+        <span class="card-icon-big">⚡</span>
+        <h2 class="card-title-bold">核心价值</h2>
+        <p class="card-text-plain">
+          打破"只说不做"局限。<span class="bold-underline">7x24小时数字员工</span>，极大提升效率，人人可用。
+        </p>
+      </article>
+
+      <article class="brutal-card">
+        <div class="card-number-badge">04</div>
+        <span class="card-icon-big">⚠️</span>
+        <h2 class="card-title-bold">安全提醒</h2>
+        <p class="card-text-plain">
+          高权限需注意<span class="bold-underline">数据安全</span>，建议隔离环境部署。生产力革命才刚刚开始。
+        </p>
+      </article>
+    </section>
+
+    <div class="quote-brutal">
+      <p class="quote-text-main">
+        "真正能执行任务的AI"
+      </p>
+    </div>
+
+    <footer>
+      <a href="/" class="btn-brutal">✨ POWERED BY 深表美文</a>
+    </footer>
+  </div>
+</body>
+</html>

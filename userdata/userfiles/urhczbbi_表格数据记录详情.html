@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格数据记录详情</title>
+    <meta name="Keywords" content="表格数据,记录详情,数据字段,行号,更新时间,创建人,表格ID,共享码,数据管理,数据结构">
+    <meta name="Description" content="详细展示表格数据的字段信息与13条记录的具体内容，涵盖行号、时间戳、创建者及共享码等关键数据。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="表格数据记录详情">
+    <meta property="og:description" content="详细展示表格数据的字段信息与13条记录的具体内容，涵盖行号、时间戳、创建者及共享码等关键数据。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/urhczbbi">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="article-content">
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); color: #ffffff; overflow: hidden;">
+  <h1 style="text-align: center; font-size: 2.4em; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">📋 表格数据记录详情</h1>
+  <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; opacity: 0.9;">全面解析每一条数据记录的结构与内容，助力高效数据管理与分析</p>
+
+  <!-- 表格字段标题 -->
+  <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); border-radius: 12px; padding: 18px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
+    <h2 style="font-size: 1.3em; margin-bottom: 12px; color: #fff; display: flex; align-items: center; gap: 8px;">
+      <span>📌</span> 字段说明
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.95em; color: #f0f8ff; font-weight: 500;">
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">行号</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">顺序</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">标题写这里</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">标题写这里</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">11</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">riqi</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">更新时间</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">更新人</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">创建时间</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">创建人</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">创建者IP</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">行ID</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">表格ID</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">格式</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">parentid</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">层级列父级id</span>
+      <span style="background: #4a5568; padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">共享码</span>
+    </div>
+  </div>
+
+  <!-- 数据记录卡片 -->
+  <div style="display: grid; gap: 16px; margin-top: 10px;">
+    <!-- 记录1 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#1</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第1条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 21</p>
+        <p><strong>顺序:</strong> 100</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> BZXL</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:21:57</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> bvs5vib2</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录2 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#2</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第2条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 20</p>
+        <p><strong>顺序:</strong> 101</p>
+        <p><strong>标题写这里:</strong> 2</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> DVHU</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:21:57</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> fzgqpohm</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录3 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#3</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第3条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 22</p>
+        <p><strong>顺序:</strong> 201</p>
+        <p><strong>标题写这里:</strong> 33</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> DVHU</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:22:02</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> hh06lms1</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录4 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#4</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第4条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 23</p>
+        <p><strong>顺序:</strong> 301</p>
+        <p><strong>标题写这里:</strong> 22</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> DVHU</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:22:34</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> skzskgcq</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录5 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#5</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第5条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 24</p>
+        <p><strong>顺序:</strong> 401</p>
+        <p><strong>标题写这里:</strong> 33</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> BZXL</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:23:31</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> wshcjumk</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录6 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#6</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第6条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 25</p>
+        <p><strong>顺序:</strong> 501</p>
+        <p><strong>标题写这里:</strong> 34</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> UZMG</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:27:10</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> isln0uhs</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录7 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#7</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第7条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 26</p>
+        <p><strong>顺序:</strong> 601</p>
+        <p><strong>标题写这里:</strong> 55</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>11:</strong> UZMG</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 13:27:13</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> rg0q6goy</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录8 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#8</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第8条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 27</p>
+        <p><strong>顺序:</strong> 701</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> e</p>
+        <p><strong>11:</strong> NLZB</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 21:41:59</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> l7nbtc8w</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录9 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#9</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第9条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 28</p>
+        <p><strong>顺序:</strong> 801</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> r</p>
+        <p><strong>11:</strong> NLZB</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 21:42:02</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> uz3k9odq</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录10 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#10</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第10条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 29</p>
+        <p><strong>顺序:</strong> 901</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> ee</p>
+        <p><strong>11:</strong> NLZB</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 21:42:06</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> b7o7iiox</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录11 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#11</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第11条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 30</p>
+        <p><strong>顺序:</strong> 1001</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> rr</p>
+        <p><strong>11:</strong> NLZB</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 21:42:07</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> htz43psq</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录12 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#12</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第12条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 31</p>
+        <p><strong>顺序:</strong> 1101</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> ttt</p>
+        <p><strong>11:</strong> NLZB</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 21:42:09</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> ijppivop</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+
+    <!-- 记录13 -->
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 14px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 12px; font-size: 0.8em; color: #e0f7fa; font-weight: 600;">#13</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 1.1em; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <span>✨</span> 第13条记录
+      </h3>
+      <div style="font-size: 0.95em; line-height: 1.6; color: #f0f8ff;">
+        <p><strong>行号:</strong> 32</p>
+        <p><strong>顺序:</strong> 1201</p>
+        <p><strong>标题写这里:</strong> ——</p>
+        <p><strong>标题写这里:</strong> ww</p>
+        <p><strong>11:</strong> NLZB</p>
+        <p><strong>riqi:</strong> 2026-04-01</p>
+        <p><strong>更新时间:</strong> 2026-04-06 12:29:16</p>
+        <p><strong>更新人:</strong> test</p>
+        <p><strong>创建时间:</strong> 2026-01-19 21:42:11</p>
+        <p><strong>创建人:</strong> test</p>
+        <p><strong>创建者IP:</strong> Unknow</p>
+        <p><strong>行ID:</strong> w9tv54ja</p>
+        <p><strong>表格ID:</strong> uq263t9x</p>
+        <p><strong>格式:</strong> ——</p>
+        <p><strong>parentid:</strong> ——</p>
+        <p><strong>层级列父级id:</strong> ——</p>
+        <p><strong>共享码:</strong> ——</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px; font-size: 0.9em; color: #cdd6f7; opacity: 0.8;">
+    📊 <strong>共 13 条记录 | 所有数据均来自系统日志</strong>
+  </div>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "表格数据记录详情",
+      "description": "详细展示表格数据的字段信息与13条记录的具体内容，涵盖行号、时间戳、创建者及共享码等关键数据。",
+      "keywords": "表格数据,记录详情,数据字段,行号,更新时间,创建人,表格ID,共享码,数据管理,数据结构",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/urhczbbi"
+      }
+    }
+    </script>    
+</body>
+</html>

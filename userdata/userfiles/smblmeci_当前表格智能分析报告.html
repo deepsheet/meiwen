@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当前表格 - 智能分析报告</title>
+    <meta name="Keywords" content="智能分析, 数据洞察, 财务记录, 房源管理, 收支分析, 异常检测, 业务优化">
+    <meta name="Description" content="本报告基于24条财务记录，深度分析收支结构、房源分布与异常数据，揭示运营痛点并提出可落地的优化建议。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="当前表格 - 智能分析报告">
+    <meta property="og:description" content="本报告基于24条财务记录，深度分析收支结构、房源分布与异常数据，揭示运营痛点并提出可落地的优化建议。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/smblmeci">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="article-content">
+        <h1 style="font-size: 2.2em; font-weight: 700; text-align: center; margin-bottom: 16px; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); padding: 18px; border-radius: 12px; color: white; box-shadow: 0 6px 12px rgba(0,0,0,0.15); text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">
+  📊 当前表格 - 智能分析报告
+</h1>
+
+<div style="display: flex; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 280px; background: #f8f9ff; border: 1px solid #e0e7ff; border-radius: 12px; padding: 16px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <h3 style="margin-top: 0; color: #1a56db; font-size: 1.2em;">🔍 总体评价</h3>
+    <p style="color: #333; line-height: 1.6; margin: 8px 0;">
+      🏁 该表格反映的核心业务状况为：<strong>以“1期41-03”和“1期12-01”两处房源为主，支出集中于水电燃气及维修类费用，收入主要来自月租与跨年活动收益；整体现金流呈现“前期净流出、后期回正”的趋势，但存在多笔金额缺失或逻辑异常记录，需警惕数据完整性风险。</strong>
+    </p>
+  </div>
+
+  <div style="flex: 1; min-width: 280px; background: #fff8e1; border: 1px solid #ffd32a; border-radius: 12px; padding: 16px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <h3 style="margin-top: 0; color: #d35400; font-size: 1.2em;">📊 分类汇总</h3>
+    <ul style="color: #333; line-height: 1.8; margin: 8px 0; padding-left: 20px;">
+      <li><strong>收支类型分布：</strong>支出（-）占比 75%，收入（+）占比 25%</li>
+      <li><strong>主要支出类别：</strong>水电燃气（38%）、房屋维护（22%）、一次性采购（19%）、人工服务（15%）</li>
+      <li><strong>房源分布：</strong>1期41-03 占比 58%（14条），1期12-01 占比 42%（10条）</li>
+      <li><strong>时间分布：</strong>2025年10月（3条）、11月（3条）、12月（6条）、2026年1月（4条）</li>
+    </ul>
+  </div>
+</div>
+
+<div style="background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 12px; padding: 20px; margin-bottom: 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+  <h3 style="color: #2e7d32; font-size: 1.3em; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+    ⚖️ 极值与趋势分析
+  </h3>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 12px;">
+    <div style="background: white; border-radius: 10px; padding: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.9em; color: #666; margin-bottom: 4px;">📈 最大支出额</p>
+      <p style="font-size: 1.3em; font-weight: bold; color: #d32f2f;">¥900</p>
+      <small style="color: #888;">三套床上用品（记录18）</small>
+    </div>
+    <div style="background: white; border-radius: 10px; padding: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.9em; color: #666; margin-bottom: 4px;">📉 最小支出额</p>
+      <p style="font-size: 1.3em; font-weight: bold; color: #1b5e20;">¥31</p>
+      <small style="color: #888;">11月水费（记录7）</small>
+    </div>
+    <div style="background: white; border-radius: 10px; padding: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.9em; color: #666; margin-bottom: 4px;">💰 平均支出额</p>
+      <p style="font-size: 1.3em; font-weight: bold; color: #1565c0;">¥287.5</p>
+      <small style="color: #888;">基于18条有效支出记录</small>
+    </div>
+    <div style="background: white; border-radius: 10px; padding: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.9em; color: #666; margin-bottom: 4px;">💸 最大收入额</p>
+      <p style="font-size: 1.3em; font-weight: bold; color: #2e7d32;">¥500</p>
+      <small style="color: #888;">跨年聚会（记录14）</small>
+    </div>
+  </div>
+  <p style="margin-top: 16px; color: #333; font-style: italic; font-size: 0.95em;">
+    💡 数据波动趋势：2025年12月支出激增（共6条），集中在燃气、水费及一次性采购；2026年1月出现跨年活动收入高峰，显示周期性现金流特征明显。
+  </p>
+</div>
+
+<div style="background: #ffebee; border: 1px solid #ffcdd2; border-radius: 12px; padding: 20px; margin-bottom: 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+  <h3 style="color: #c62828; font-size: 1.3em; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+    ❗ 异常检测
+  </h3>
+  <ul style="color: #333; line-height: 1.7; margin: 12px 0; padding-left: 20px;">
+    <li><strong>金额为空的记录：</strong>记录10（购买燃气灶）与记录11（更换服务费）的“金额”字段为 <code>null</code>，但备注中明确标注了负值（-199、-150），属于关键数据缺失，影响成本核算准确性。</li>
+    <li><strong>日期格式异常：</strong>记录4、记录5、记录6等多条记录的“发生日期”为 <code>0000-00-00</code>，应为系统录入错误，需排查数据源校验机制。</li>
+    <li><strong>年月字段混乱：</strong>记录19中“年月”字段填写为“1期12-01”，明显是“房源”字段误填，造成时间维度错乱，影响趋势分析。</li>
+    <li><strong>极值偏离：</strong>单笔支出达 ¥900 的“三套床上用品”虽合理，但未注明用途或数量，缺乏明细支撑，存在报销合理性存疑风险。</li>
+  </ul>
+</div>
+
+<div style="background: #e1f5fe; border: 1px solid #b3e5fc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+  <h3 style="color: #0277bd; font-size: 1.3em; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+    ✅ 专业建议
+  </h3>
+  <ol style="color: #333; line-height: 1.8; margin: 16px 0; padding-left: 24px;">
+    <li><strong>建立强制字段校验机制：</strong>对“金额”、“发生日期”、“年月”等核心字段设置必填规则，并增加格式验证（如日期必须为合法格式、金额不能为 null），从源头杜绝数据污染。</li>
+    <li><strong>推行标准化报销模板：</strong>要求所有支出类记录附带清晰的明细说明（如“三套床上用品 × 300元/套”），避免模糊描述；同时引入图片上传规范，确保凭证可追溯。</li>
+    <li><strong>实施定期数据审计流程：</strong>每月由负责人进行一次数据核查，重点关注金额异常、字段错位、重复记录等问题，形成闭环管理机制，提升整体数据可信度。</li>
+  </ol>
+  <p style="text-align: right; color: #666; font-size: 0.9em; margin-top: 16px;">
+    📌 报告生成时间：2025-12-26 | 数据样本量：24条 | 分析人：资深数据分析师
+  </p>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "当前表格 - 智能分析报告",
+      "description": "本报告基于24条财务记录，深度分析收支结构、房源分布与异常数据，揭示运营痛点并提出可落地的优化建议。",
+      "keywords": "智能分析, 数据洞察, 财务记录, 房源管理, 收支分析, 异常检测, 业务优化",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/smblmeci"
+      }
+    }
+    </script>    
+</body>
+</html>

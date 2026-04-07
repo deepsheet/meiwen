@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="{lang}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{page_title}</title>
+    <meta name="Keywords" content="{keywords}">
+    <meta name="Description" content="{description}">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="{page_title}">
+    <meta property="og:description" content="{description}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/{article_id}">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {{
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }}
+        
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }}
+        
+        /* 文章内容容器 */
+        .article-content {{
+            margin-bottom: 60px;
+        }}
+        
+        /* 底部标识样式 */
+        .footer {{
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }}
+        
+        .powered-by {{
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }}
+        
+        .powered-by:hover {{
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }}
+        
+        @keyframes pulse {{
+            0%, 100% {{ opacity: 0.8; }}
+            50% {{ opacity: 1; }}
+        }}
+        
+        /* FAQ 样式 */
+        .faq-section {{
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }}
+        
+        .faq-item {{
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }}
+        
+        .faq-item h3 {{
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }}
+        
+        .faq-item p {{
+            color: #555;
+            line-height: 1.8;
+        }}
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {{
+            body {{
+                padding: 15px;
+            }}
+            
+            .article-content {{
+                margin-bottom: 40px;
+            }}
+            
+            .powered-by {{
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <article class="article-content">
+        {content}
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ {powered_by}</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{page_title}",
+      "description": "{description}",
+      "keywords": "{keywords}",
+      "author": {{
+        "@type": "Organization",
+        "name": "深表美文"
+      }},
+      "publisher": {{
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {{
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }}
+      }},
+      "datePublished": "{publish_date}",
+      "dateModified": "{modify_date}",
+      "mainEntityOfPage": {{
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/{article_id}"
+      }}
+    }}
+    </script>    
+</body>
+</html>

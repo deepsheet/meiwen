@@ -1,0 +1,284 @@
+# AI 编程智能体规范
+
+## 📁 项目文件组织规则
+
+### 核心原则
+- **根目录保持简洁**：只保留必要的入口文件和配置文件
+- **代码分离**：源代码、测试代码、文档严格分离
+- **清晰的目录结构**：每个目录都有明确的用途
+
+### 文件存放规则
+
+#### ✅ 根目录允许的文件
+
+1. **核心入口文件**：
+   - `README.md` - 项目主文档
+   - `requirements.txt` - Python 依赖
+   - `app.py` - 应用入口
+   - `.gitignore` - Git 忽略配置
+
+2. **启动和部署脚本**：
+   - `start.sh` - 启动脚本
+   - `setup.sh` - 安装脚本
+   - `deploy.sh` - 部署脚本
+
+3. **配置文件**（如果不在 config/ 目录）：
+   - 尽量使用 `config/` 目录
+
+#### ❌ 禁止在根目录创建
+
+以下类型的文件**必须**放到相应目录：
+
+1. **测试文件** → `debug/` 目录
+   - 所有 `test_*.py` 文件
+   - 所有 `check_*.py` 文件
+   - 所有 `*_test.py` 文件
+   - 测试输出文件（如 `*.txt` 日志）
+
+2. **文档文件** → `docs/` 目录
+   - 所有 `.md` 文件（除了 README.md）
+   - 所有说明文档、教程、指南
+
+3. **临时和示例文件** → `debug/` 目录
+   - `generate_*.py` - 生成示例的脚本
+   - `examples_*.py` - 示例代码
+   - `quick_*.py` - 快速测试脚本
+   - 临时的 HTML 文件
+
+4. **源代码** → `src/` 目录
+   - 所有业务逻辑代码
+   - 所有服务模块
+   - 所有工具类
+
+## 🎯 AI 编程行为准则
+
+### 创建新文件时的规则
+
+#### 1. 判断文件类型
+
+在创建任何新文件之前，先判断文件类型：
+
+```python
+# 错误示例 ❌
+create_file("test_new_feature.py")  # 会创建在根目录
+
+# 正确示例 ✅
+create_file("debug/test_new_feature.py")  # 测试文件放 debug/
+```
+
+#### 2. 文件命名约定
+
+**测试文件**：
+- 格式：`debug/test_<功能>.py`
+- 例如：`debug/test_ai_title.py`
+
+**文档文件**：
+- 格式：`docs/<功能>_说明.md`
+- 例如：`docs/API_USAGE.md`
+
+**源代码文件**：
+- 格式：`src/<模块名>.py`
+- 例如：`src/title_generator.py`
+
+### 修改现有文件
+
+#### 1. 优先查找文件位置
+
+在修改文件前，先确认文件的正确位置：
+
+```bash
+# 查找测试文件
+ls debug/test_*.py
+
+# 查找文档
+ls docs/*.md
+
+# 查找源代码
+ls src/*.py
+```
+
+#### 2. 遵循现有结构
+
+- 如果已有类似功能的测试文件在 `debug/`，新的测试也放那里
+- 如果已有类似的文档在 `docs/`，相关的更新也放那里
+- 保持文件组织的一致性
+
+### 代码质量要求
+
+#### 1. 注释规范
+
+```python
+def format_article(self, content, title=None):
+    """
+    将文章内容转换为具有丰富视觉效果的 HTML
+    
+    @param {str} content - 文章内容（纯文本或简单 HTML）
+    @param {str} title - 可选的文章标题
+    @return {str} - 包含丰富格式的完整 HTML
+    """
+```
+
+- 所有公共函数必须有 docstring
+- 使用统一的参数说明格式
+- 中文注释优先（除非团队另有约定）
+
+#### 2. 日志记录
+
+```python
+# 好的做法 ✅
+logger.info(f"文章格式化完成，HTML 长度：{len(formatted_html)}")
+logger.error(f"AI 生成标题失败：{str(e)}")
+
+# 避免的做法 ❌
+print("格式化完成")  # 不要使用 print
+```
+
+#### 3. 错误处理
+
+```python
+try:
+    result = api_call()
+except Exception as e:
+    logger.error(f"API 调用失败：{str(e)}")
+    return fallback_solution()  # 提供降级方案
+```
+
+### 测试代码规范
+
+#### 1. 测试文件结构
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+测试 XXX 功能
+"""
+
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from src.module_name import ModuleClass
+
+
+def test_feature():
+    """测试具体功能"""
+    print("开始测试...")
+    # 测试代码
+    
+if __name__ == "__main__":
+    test_feature()
+```
+
+#### 2. 测试文件必须放在 debug/
+
+```python
+# 错误 ❌
+create_file("test_feature.py", content)
+
+# 正确 ✅
+create_file("debug/test_feature.py", content)
+```
+
+### 文档编写规范
+
+#### 1. Markdown 文档结构
+
+```markdown
+# 标题
+
+## 功能说明
+
+简要描述功能是什么
+
+## 使用方法
+
+```python
+# 代码示例
+from src.module import Class
+instance = Class()
+```
+
+## 注意事项
+
+- 注意点 1
+- 注意点 2
+
+## 相关文件
+
+- `src/module.py` - 主要实现
+- `debug/test_module.py` - 测试文件
+```
+
+#### 2. 文档必须放在 docs/
+
+```python
+# 错误 ❌
+create_file("FEATURE_GUIDE.md", content)
+
+# 正确 ✅
+create_file("docs/FEATURE_GUIDE.md", content)
+```
+
+## 🔍 常见错误及避免方法
+
+### 错误 1：在根目录创建测试文件
+
+```python
+# ❌ 错误
+create_file("test_new_api.py", "...")
+
+# ✅ 正确
+create_file("debug/test_new_api.py", "...")
+```
+
+### 错误 2：在根目录创建文档
+
+```python
+# ❌ 错误
+create_file("API_DOCUMENTATION.md", "...")
+
+# ✅ 正确
+create_file("docs/API_DOCUMENTATION.md", "...")
+```
+
+### 错误 3：源代码散落在各处
+
+```python
+# ❌ 错误
+create_file("utils.py", "...")  # 在根目录
+create_file("helpers/new_helper.py", "...")  # 随意创建目录
+
+# ✅ 正确
+create_file("src/utils.py", "...")  # 统一放 src/
+create_file("src/helpers/new_helper.py", "...")  # 子目录也在 src/内
+```
+
+## 📋 检查清单
+
+在提交代码或结束任务前，检查：
+
+- [ ] 测试文件都在 `debug/` 目录
+- [ ] 文档文件都在 `docs/` 目录（README.md 除外）
+- [ ] 源代码都在 `src/` 目录
+- [ ] 根目录保持简洁（只有必要的入口文件）
+- [ ] 没有临时文件遗留在根目录
+- [ ] 使用了正确的文件命名规范
+- [ ] 代码有适当的注释和日志
+
+## 🚀 快速参考
+
+| 文件类型 | 应该放在 | 示例 |
+|---------|---------|------|
+| 测试代码 | `debug/` | `debug/test_api.py` |
+| 文档 | `docs/` | `docs/USAGE.md` |
+| 源代码 | `src/` | `src/api_client.py` |
+| 配置 | `config/` | `config/settings.py` |
+| 静态资源 | `static/` | `static/css/style.css` |
+| 日志 | `logs/` | `logs/app.log` |
+| 入口文件 | 根目录 | `app.py`, `README.md` |
+
+---
+
+**重要提醒**：作为 AI 编程智能体，必须严格遵守这些规范，保持项目结构清晰、整洁、易于维护！

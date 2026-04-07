@@ -77,8 +77,18 @@ class DatabaseManager:
             # 生成随机8位字符串作为ID
             blog_id = self._generate_random_id(8)
             
-            # 生成当天10点到22点之间的随机时间
-            hour = random.randint(10, 22)
+            # 生成当天当前时间前一小时内的随机时间
+            current_hour = datetime.now().hour
+            # 如果当前时间小于10点，则使用9点
+            if current_hour < 10:
+                hour = 9
+            # 如果当前时间大于22点，则使用21点
+            elif current_hour > 22:
+                hour = 21
+            # 否则使用当前时间前一小时
+            else:
+                hour = current_hour - 1
+            
             minute = random.randint(0, 59)
             second = random.randint(0, 59)
             current_time = datetime.now().replace(hour=hour, minute=minute, second=second).strftime('%Y-%m-%d %H:%M:%S')

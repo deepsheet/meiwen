@@ -1,2 +1,0 @@
-# isheet.net营销工具 - 每天凌晨5点生成博客
-0 5 * * * curl -s http://localhost:8080/generate-blog > /dev/null 2>&1 

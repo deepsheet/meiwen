@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>陈坤极2022年外车车费报销明细</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.4em;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      padding: 15px 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(106, 17, 203, 0.2);
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.1em;
+      color: #6c757d;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e0e0e0;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    }
+    .section-title {
+      font-size: 1.5em;
+      color: #2c3e50;
+      margin-top: 20px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: "📌";
+      font-size: 1.3em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95em;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    tr:nth-child(even) {
+      background-color: #f8f9ff;
+    }
+    tr:hover {
+      background-color: #eef1ff;
+      transition: background-color 0.3s ease;
+    }
+    .highlight {
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #d33f52;
+    }
+    .total-row {
+      font-weight: bold;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .note {
+      font-size: 0.9em;
+      color: #6c757d;
+      margin-top: 10px;
+      font-style: italic;
+      padding: 12px;
+      background-color: #f0f4ff;
+      border-left: 4px solid #6a11cb;
+      border-radius: 4px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px 0;
+      font-size: 0.9em;
+      color: #6c757d;
+    }
+    .powered-by {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+      transition: all 0.3s ease;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    .powered-by:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
+    }
+    .emoji {
+      font-size: 1.2em;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 陈坤极2022年外车车费报销明细</h1>
+    <p class="subtitle">完整年度差旅费用记录 · 经手人：陈坤极 · 报销周期：2022年</p>
+
+    <div class="card">
+      <h2 class="section-title">🚗 外车车费明细</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>年份</th>
+            <th>费用发生月份</th>
+            <th>实际付款月份</th>
+            <th>经手人</th>
+            <th>类别</th>
+            <th>收支内容说明</th>
+            <th>金额（元）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>苏州-上海，202</td>
+            <td class="highlight">39.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>嘉善南-上海虹桥</td>
+            <td class="highlight">29.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>福州-上海虹桥</td>
+            <td class="highlight">377.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>安亭北-苏州</td>
+            <td class="highlight">24.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>宁德-永泰</td>
+            <td class="highlight">49.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-05</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>南京南-福州</td>
+            <td class="highlight">410.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>常州-上海</td>
+            <td class="highlight">74.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>常州-上海</td>
+            <td class="highlight">74.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>苏州-常州</td>
+            <td class="highlight">34.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>上海虹桥-苏州</td>
+            <td class="highlight">39.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>福州-上海虹桥</td>
+            <td class="highlight">377.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-05</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>北京南-南京南</td>
+            <td class="highlight">482.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>上海虹桥-常州</td>
+            <td class="highlight">61.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>义乌-福州</td>
+            <td class="highlight">259.5</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-05</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>上海虹桥-北京南</td>
+            <td class="highlight">598.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-05</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>苏州-上海虹桥</td>
+            <td class="highlight">31.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>外车车费</td>
+            <td>常州-杭州东</td>
+            <td class="highlight">149.0</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">💡 注：以上为“外车车费”类别的全部支出记录，共涉及18笔。</p>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">🏨 住宿费用明细</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>年份</th>
+            <th>费用发生月份</th>
+            <th>实际付款月份</th>
+            <th>经手人</th>
+            <th>类别</th>
+            <th>收支内容说明</th>
+            <th>金额（元）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>宁德市东侨经济开发区京港如家酒店</td>
+            <td class="highlight">90.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>苏州莫庭酒店管理有限公司</td>
+            <td class="highlight">144.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>福州如家运通快捷酒店有限公司</td>
+            <td class="highlight">144.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>常州美城菲悦酒店管理有限公司</td>
+            <td class="highlight">372.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>上海聚乐宾馆有限公司</td>
+            <td class="highlight">261.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>上海艾琪宾馆有限公司</td>
+            <td class="highlight">173.7</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>上海简和酒店管理公司</td>
+            <td class="highlight">176.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>义乌市君盛酒店</td>
+            <td class="highlight">144.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>上海聚乐宾馆有限公司</td>
+            <td class="highlight">373.52</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>苏州莫庭酒店管理有限公司</td>
+            <td class="highlight">154.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>苏州莫庭酒店管理有限公司</td>
+            <td class="highlight">320.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>苏州莫庭酒店管理有限公司</td>
+            <td class="highlight">166.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>上海聚乐宾馆有限公司</td>
+            <td class="highlight">156.11</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-07</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>上海聚乐宾馆有限公司</td>
+            <td class="highlight">97.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-06</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>常州锦宁旅馆投资管理有限公司</td>
+            <td class="highlight">448.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-05</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>南京诗蓝海酒店管理有限公司江宁分公司</td>
+            <td class="highlight">143.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>苏州莫庭酒店管理有限公司</td>
+            <td class="highlight">134.0</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>2021-08</td>
+            <td>2022-10</td>
+            <td>陈坤极</td>
+            <td>住宿</td>
+            <td>嘉善豪格宾馆</td>
+            <td class="highlight">178.0</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">💡 注：以上为“住宿”类别的全部支出记录，共涉及18笔。</p>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">🧮 总计统计</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>类别</th>
+            <th>总笔数</th>
+            <th>总金额（元）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>外车车费</td>
+            <td>18</td>
+            <td class="highlight">3,405.0</td>
+          </tr>
+          <tr>
+            <td>住宿</td>
+            <td>18</td>
+            <td class="highlight">3,319.83</td>
+          </tr>
+          <tr class="total-row">
+            <td>合计</td>
+            <td>36</td>
+            <td>6,724.83</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">✅ 所有数据均来自原始报销记录，已按时间与类别分类整理，无遗漏或增补。</p>
+    </div>
+
+    <div class="footer">
+      <a href="/" target="_blank" class="powered-by">
+        🌟 powered by 深表美文
+      </a>
+    </div>
+  </div>
+</body>
+</html>

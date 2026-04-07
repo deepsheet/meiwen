@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格字段与记录详情</title>
+    <meta name="Keywords" content="表格字段, 记录详情, 数据结构, 表格设计, 数据管理">
+    <meta name="Description" content="详细解析表格字段与记录详情的结构组成，涵盖字段含义、数据示例及实际应用场景。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="表格字段与记录详情">
+    <meta property="og:description" content="详细解析表格字段与记录详情的结构组成，涵盖字段含义、数据示例及实际应用场景。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/kklkvjcc">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="article-content">
+        <div style="font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); color: #ffffff; overflow: hidden;">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h1 style="font-size: 2.8em; font-weight: 700; margin: 0; background: linear-gradient(90deg, #ffffff, #f0f8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; padding: 10px 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+      📊 表格字段与记录详情
+    </h1>
+    <p style="font-size: 1.1em; opacity: 0.9; margin-top: 10px; font-style: italic;">深入理解数据结构中的核心元素</p>
+  </div>
+
+  <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 14px; padding: 24px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="font-size: 1.6em; margin-bottom: 16px; color: #ffffff; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); display: flex; align-items: center; gap: 8px;">
+      🗂️ 表格字段定义
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">行号</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">顺序</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">1</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">点此设标题</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">更新时间</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">更新人</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">创建时间</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">创建人</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">创建者IP</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">点赞</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">ID</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">表格ID</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">格式化</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">系统数据</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">父表记录ID</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">sharekey</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">上报号</span>
+      <span style="background: #ffffff; color: #4a4a4a; padding: 8px 14px; border-radius: 20px; font-size: 0.95em; font-weight: 500; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">上报状态</span>
+    </div>
+    <p style="font-size: 0.9em; color: #e0e0ff; line-height: 1.6; margin-top: 10px;">
+      🔍 所有字段均为系统级数据标识，用于支持数据追踪、权限控制与多层级关联。其中“点此设标题”为可编辑字段，支持自定义标题以增强可读性。
+    </p>
+  </div>
+
+  <div style="margin-top: 24px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border-radius: 14px; padding: 24px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="font-size: 1.6em; margin-bottom: 16px; color: #ffffff; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); display: flex; align-items: center; gap: 8px;">
+      📝 表格数据记录示例
+    </h2>
+
+    <div style="margin-bottom: 16px;">
+      <div style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid #6a11cb; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 0.95em; color: #f0f0ff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong style="color: #ffffff;">📌 第1条记录：</strong><br>
+        <span style="color: #b0d8ff;">行号:</span> 1，<span style="color: #b0d8ff;">顺序:</span> 101，<span style="color: #b0d8ff;">1:</span> 1，<span style="color: #b0d8ff;">点此设标题:</span> ，<span style="color: #b0d8ff;">更新时间:</span> 2026-02-10 10:26:03，<span style="color: #b0d8ff;">更新人:</span> chenkunji，<span style="color: #b0d8ff;">创建时间:</span> 2019-09-11 21:37:07，<span style="color: #b0d8ff;">创建人:</span> chenkunji，<span style="color: #b0d8ff;">创建者IP:</span> 218.241.236.34，<span style="color: #b0d8ff;">点赞:</span> ，<span style="color: #b0d8ff;">ID:</span> 19091121370746158121，<span style="color: #b0d8ff;">表格ID:</span> 19091121370288887313，<span style="color: #b0d8ff;">格式化:</span> ，<span style="color: #b0d8ff;">系统数据:</span> ，<span style="color: #b0d8ff;">父表记录ID:</span> ，<span style="color: #b0d8ff;">sharekey:</span> ，<span style="color: #b0d8ff;">上报号:</span> ，<span style="color: #b0d8ff;">上报状态:</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid #2575fc; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 0.95em; color: #f0f0ff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong style="color: #ffffff;">📌 第2条记录：</strong><br>
+        <span style="color: #b0d8ff;">行号:</span> 102，<span style="color: #b0d8ff;">顺序:</span> 201，<span style="color: #b0d8ff;">1:</span> 1，<span style="color: #b0d8ff;">点此设标题:</span> BYDOURHM，<span style="color: #b0d8ff;">更新时间:</span> 2026-01-20 20:58:59，<span style="color: #b0d8ff;">更新人:</span> chenkunji，<span style="color: #b0d8ff;">创建时间:</span> 2026-01-20 20:58:59，<span style="color: #b0d8ff;">创建人:</span> chenkunji，<span style="color: #b0d8ff;">创建者IP:</span> 117.29.12.254，<span style="color: #b0d8ff;">点赞:</span> ，<span style="color: #b0d8ff;">ID:</span> o7bv6hdp，<span style="color: #b0d8ff;">表格ID:</span> 19091121370288887313，<span style="color: #b0d8ff;">格式化:</span> ，<span style="color: #b0d8ff;">系统数据:</span> ，<span style="color: #b0d8ff;">父表记录ID:</span> ，<span style="color: #b0d8ff;">sharekey:</span> ，<span style="color: #b0d8ff;">上报号:</span> ，<span style="color: #b0d8ff;">上报状态:</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid #6a11cb; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 0.95em; color: #f0f0ff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong style="color: #ffffff;">📌 第3条记录：</strong><br>
+        <span style="color: #b0d8ff;">行号:</span> 102，<span style="color: #b0d8ff;">顺序:</span> 301，<span style="color: #b0d8ff;">1:</span> 2，<span style="color: #b0d8ff;">点此设标题:</span> BYDOURHM，<span style="color: #b0d8ff;">更新时间:</span> 2026-01-20 20:58:59，<span style="color: #b0d8ff;">更新人:</span> chenkunji，<span style="color: #b0d8ff;">创建时间:</span> 2026-01-20 20:58:59，<span style="color: #b0d8ff;">创建人:</span> chenkunji，<span style="color: #b0d8ff;">创建者IP:</span> 117.29.12.254，<span style="color: #b0d8ff;">点赞:</span> ，<span style="color: #b0d8ff;">ID:</span> qmgp0x1c，<span style="color: #b0d8ff;">表格ID:</span> 19091121370288887313，<span style="color: #b0d8ff;">格式化:</span> ，<span style="color: #b0d8ff;">系统数据:</span> ，<span style="color: #b0d8ff;">父表记录ID:</span> ，<span style="color: #b0d8ff;">sharekey:</span> ，<span style="color: #b0d8ff;">上报号:</span> ，<span style="color: #b0d8ff;">上报状态:</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid #2575fc; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 0.95em; color: #f0f0ff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong style="color: #ffffff;">📌 第4条记录：</strong><br>
+        <span style="color: #b0d8ff;">行号:</span> 103，<span style="color: #b0d8ff;">顺序:</span> 401，<span style="color: #b0d8ff;">1:</span> 3，<span style="color: #b0d8ff;">点此设标题:</span> BYDOURHM，<span style="color: #b0d8ff;">更新时间:</span> 2026-01-20 20:59:00，<span style="color: #b0d8ff;">更新人:</span> chenkunji，<span style="color: #b0d8ff;">创建时间:</span> 2026-01-20 20:59:00，<span style="color: #b0d8ff;">创建人:</span> chenkunji，<span style="color: #b0d8ff;">创建者IP:</span> 117.29.12.254，<span style="color: #b0d8ff;">点赞:</span> ，<span style="color: #b0d8ff;">ID:</span> ixi535j7，<span style="color: #b0d8ff;">表格ID:</span> 19091121370288887313，<span style="color: #b0d8ff;">格式化:</span> ，<span style="color: #b0d8ff;">系统数据:</span> ，<span style="color: #b0d8ff;">父表记录ID:</span> ，<span style="color: #b0d8ff;">sharekey:</span> ，<span style="color: #b0d8ff;">上报号:</span> ，<span style="color: #b0d8ff;">上报状态:</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid #6a11cb; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 0.95em; color: #f0f0ff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong style="color: #ffffff;">📌 第5条记录：</strong><br>
+        <span style="color: #b0d8ff;">行号:</span> 104，<span style="color: #b0d8ff;">顺序:</span> 501，<span style="color: #b0d8ff;">1:</span> 4，<span style="color: #b0d8ff;">点此设标题:</span> BYDOURHM，<span style="color: #b0d8ff;">更新时间:</span> 2026-01-20 20:59:00，<span style="color: #b0d8ff;">更新人:</span> chenkunji，<span style="color: #b0d8ff;">创建时间:</span> 2026-01-20 20:59:00，<span style="color: #b0d8ff;">创建人:</span> chenkunji，<span style="color: #b0d8ff;">创建者IP:</span> 117.29.12.254，<span style="color: #b0d8ff;">点赞:</span> ，<span style="color: #b0d8ff;">ID:</span> bibvrxy6，<span style="color: #b0d8ff;">表格ID:</span> 19091121370288887313，<span style="color: #b0d8ff;">格式化:</span> ，<span style="color: #b0d8ff;">系统数据:</span> ，<span style="color: #b0d8ff;">父表记录ID:</span> ，<span style="color: #b0d8ff;">sharekey:</span> ，<span style="color: #b0d8ff;">上报号:</span> ，<span style="color: #b0d8ff;">上报状态:</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid #2575fc; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 0.95em; color: #f0f0ff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong style="color: #ffffff;">📌 第6条记录：</strong><br>
+        <span style="color: #b0d8ff;">行号:</span> 105，<span style="color: #b0d8ff;">顺序:</span> 601，<span style="color: #b0d8ff;">1:</span> 5，<span style="color: #b0d8ff;">点此设标题:</span> BYDOURHM，<span style="color: #b0d8ff;">更新时间:</span> 2026-01-20 20:59:01，<span style="color: #b0d8ff;">更新人:</span> chenkunji，<span style="color: #b0d8ff;">创建时间:</span> 2026-01-20 20:59:01，<span style="color: #b0d8ff;">创建人:</span> chenkunji，<span style="color: #b0d8ff;">创建者IP:</span> 117.29.12.254，<span style="color: #b0d8ff;">点赞:</span> ，<span style="color: #b0d8ff;">ID:</span> rt0p67tn，<span style="color: #b0d8ff;">表格ID:</span> 19091121370288887313，<span style="color: #b0d8ff;">格式化:</span> ，<span style="color: #b0d8ff;">系统数据:</span> ，<span style="color: #b0d8ff;">父表记录ID:</span> ，<span style="color: #b0d8ff;">sharekey:</span> ，<span style="color: #b0d8ff;">上报号:</span> ，<span style="color: #b0d8ff;">上报状态:</span>
+      </div>
+    </div>
+
+    <p style="font-size: 0.9em; color: #e0e0ff; line-height: 1.6; text-align: center; margin-top: 10px;">
+      💡 提示：所有记录均来自同一张表格，ID 和表格ID 保持一致，表明属于同一数据源；“点此设标题”字段在后续版本中将支持动态命名，提升可读性。
+    </p>
+  </div>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "表格字段与记录详情",
+      "description": "详细解析表格字段与记录详情的结构组成，涵盖字段含义、数据示例及实际应用场景。",
+      "keywords": "表格字段, 记录详情, 数据结构, 表格设计, 数据管理",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/kklkvjcc"
+      }
+    }
+    </script>    
+</body>
+</html>

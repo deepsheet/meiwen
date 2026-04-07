@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>123</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(106, 17, 203, 0.2);
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      border: 1px solid #e0e0e0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .content-text {
+      font-size: 1.2rem;
+      color: #444;
+      margin: 0;
+      padding: 15px 0;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+    }
+    .emoji {
+      font-size: 2rem;
+      margin: 0 5px;
+    }
+    .footer {
+      margin-top: auto;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .powered-by {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6b6b, #ee5a24, #feca57, #4bd39b, #51cf66);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+    .powered-by:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #51cf66, #4bd39b, #feca57, #ee5a24, #ff6b6b);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .powered-by::before {
+      content: "✨";
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>123</h1>
+
+    <div class="content-card">
+      <p class="content-text">123 <span class="emoji">📌</span></p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/" target="_blank" class="powered-by">
+    <!-- 下载按钮 -->
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+        <button id="downloadBtn" onclick="downloadCurrentPage()" title="下载本网页到本地" style="background: rgba(102, 126, 234, 0.8); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 14px; cursor: pointer; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 6px; backdrop-filter: blur(10px);" onmouseover="this.style.background='rgba(102, 126, 234, 1)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.8)'; this.style.transform='translateY(0)'">
+            📥 下载
+        </button>
+    </div>
+    
+    <script>
+        function downloadCurrentPage() {
+            // 获取当前页面的完整 HTML
+            const htmlContent = document.documentElement.outerHTML;
+            
+            // 移除下载按钮元素
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                downloadBtn.parentElement.remove();
+            }
+            
+            // 创建一个 Blob 对象
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+            
+            // 创建下载链接
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成文件名（使用页面标题）
+            const title = document.title || 'page';
+            const filename = title.replace(/[^\w一-鿿]/g, '_') + '.html';
+            a.download = filename;
+            
+            // 触发下载
+            document.body.appendChild(a);
+            a.click();
+            
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+    </script>
+
+powered by 深表美文</a>
+  </div>
+</body>
+</html>

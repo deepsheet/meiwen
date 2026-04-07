@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>陈坤极</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 30px;
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.4em;
+      margin-bottom: 10px;
+      color: #4a4a4a;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th {
+      background: linear-gradient(135deg, #4CAF50, #8BC34A);
+      color: white;
+      font-weight: 600;
+      padding: 14px 12px;
+      text-align: left;
+      border-radius: 10px 10px 0 0;
+      font-size: 0.95em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 0.95em;
+      color: #555;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f0f7ff;
+      transition: background-color 0.3s ease;
+    }
+    .highlight {
+      background-color: #fff3cd;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-weight: 600;
+      color: #856404;
+      font-size: 0.9em;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+    }
+    .footer a {
+      font-size: 0.9em;
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+    }
+    .footer a:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ff5252, #d34422);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 陈坤极</h1>
+    <p class="subtitle">📊 费用明细记录表</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>年份</th>
+          <th>费用发生..月份</th>
+          <th>实际付款..月份</th>
+          <th>经手人</th>
+          <th>类别</th>
+          <th>收支内容说明 </th>
+          <th>金额</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2022</td>
+          <td>2021-08</td>
+          <td>2022-10</td>
+          <td>陈坤极</td>
+          <td>外车车费</td>
+          <td>苏州-上海，202</td>
+          <td class="highlight">39.5</td>
+        </tr>
+        <tr>
+          <td>2022</td>
+          <td>2021-08</td>
+          <td>2022-10</td>
+          <td>陈坤极</td>
+          <td>外车车费</td>
+          <td>嘉善南-上海虹桥</td>
+          <td class="highlight">29.5</td>
+        </tr>
+        <tr>
+          <td>2022</td>
+          <td>2021-07</td>
+          <td>2022-10</td>
+          <td>陈坤极</td>
+          <td>外车车费</td>
+          <td>福州-上海虹桥</td>
+          <td class="highlight">377.5</td>
+        </tr>
+        <tr>
+          <td>2022</td>
+          <td>2021-08</td>
+          <td>2022-10</td>
+          <td>陈坤极</td>
+          <td>外车车费</td>
+          <td>安亭北-苏州</td>
+          <td class="highlight">24.5</td>
+        </tr>
+        <tr>
+          <td>2022</td>
+          <td>2021-07</td>
+          <td>2022-10</td>
+          <td>陈坤极</td>
+          <td>外车车费</td>
+          <td>宁德-永泰</td>
+          <td class="highlight">49.5</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      <a href="/" target="_blank">✨ powered by 深表美文</a>
+    </div>
+  </div>
+</body>
+</html>

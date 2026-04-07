@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI入门必知的6个核心概念</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      line-height: 1.8;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.4em;
+      margin-bottom: 30px;
+      color: #4a4a4a;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .concept {
+      margin-bottom: 25px;
+      padding: 20px;
+      border-left: 5px solid #6a11cb;
+      background: #f9f9ff;
+      border-radius: 12px;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .concept:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    .concept-title {
+      font-weight: 600;
+      color: #6a11cb;
+      font-size: 1.2em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .concept-desc {
+      font-size: 1em;
+      color: #555;
+      margin-top: 5px;
+      padding-left: 10px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+    }
+    .powered-link {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+      background-size: 400% 400%;
+      animation: gradientShift 4s ease infinite;
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      font-size: 1em;
+    }
+    .powered-link:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 AI入门必知的6个核心概念</h1>
+
+    <div class="concept">
+      <div class="concept-title">🤖 人工智能（AI）</div>
+      <div class="concept-desc">就像教电脑像人一样思考，能帮你干活。</div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-title">📊 机器学习（ML）</div>
+      <div class="concept-desc">是AI的一种，不用写死程序，让电脑通过“刷题”（数据）自己学会规律。</div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-title">🧠 深度学习（DL）</div>
+      <div class="concept-desc">模仿人脑神经网络的机器学习，特别擅长处理图像、声音等复杂信息。</div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-title">📚 大语言模型（LLM）</div>
+      <div class="concept-desc">读了海量书籍文章的“超级大脑”，能陪你聊天、写文章，比如ChatGPT。</div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-title">🎨 生成式AI（AIGC）</div>
+      <div class="concept-desc">能无中生有，帮你画画、写诗、做视频的AI工具。</div>
+    </div>
+
+    <div class="concept">
+      <div class="concept-title">🧩 智能体（Agent）</div>
+      <div class="concept-desc">不仅能聊天，还能自主规划、帮你订票、发邮件的“全能助手”。</div>
+    </div>
+
+    <div class="footer">
+      <a href="/" class="powered-link">✨ powered by 深表美文</a>
+    </div>
+  </div>
+</body>
+</html>

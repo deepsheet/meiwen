@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t('page_title') }}</title>
+    <meta name="description" content="{{ t('seo_meta_desc') }}">
+    <meta name="keywords" content="文字美化,AI排版,HTML格式化,文章美化,在线工具,深表美文,text beautifier,AI layout,HTML formatter">
+    <meta property="og:title" content="{{ t('brand_name') }} - {{ t('slogan') }}">
+    <meta property="og:description" content="{{ t('seo_meta_desc') }}">
+    <meta property="og:image" content="/static/images/afterbeauty.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <style>
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            margin: 0 5px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+        .hero .lang-btn {
+            border-color: white;
+            color: white;
+        }
+        .hero .lang-btn.active, .hero .lang-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+    </style>
+    
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "{{ t('brand_name') }}",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "description": "{{ t('seo_meta_desc') }}",
+      "featureList": [
+        "AI 驱动的文章美化",
+        "智能排版算法",
+        "多语言支持",
+        "响应式设计",
+        "永久链接分享",
+        "离线可用"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "156"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <button class="lang-btn {{ 'active' if lang == 'zh' else '' }}" onclick="switchLanguage('zh')">中文</button>
+        <button class="lang-btn {{ 'active' if lang == 'en' else '' }}" onclick="switchLanguage('en')">English</button>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="logo">
+                <img src="/favicon.ico" alt="{{ t('logo_alt') }}" class="logo-favicon">
+                <span class="logo-text">{{ t('brand_name') }}</span>
+            </div>
+            <div class="slogan">{{ t('slogan') }}</div>
+            <p class="hero-description" style="color: rgba(255,255,255,0.9); font-size: 1.1em; max-width: 600px; margin: 20px auto; line-height: 1.6;">{{ t('seo_lead_text') }}</p>
+            <a href="/html-formatter" class="cta-button">{{ t('start_beautify') }}</a>
+        </div>
+    </div>
+    
+    <!-- 对比展示区域 -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="section-title">{{ t('section_comparison') }}</h2>
+            <p style="text-align: center; color: #666; font-size: 1.2em; max-width: 800px; margin: 0 auto 40px auto;">
+                {{ t('comparison_subtitle') }}
+            </p>
+            
+            <div class="comparison-grid">
+                <!-- 美化前 -->
+                <div class="comparison-card">
+                    <div class="comparison-label">
+                        <span class="label-icon">📄</span>
+                        <span class="label-text">{{ t('before_beauty') }}</span>
+                    </div>
+                    <img src="/static/images/puretext.png" alt="{{ t('before_image_alt') }}" class="comparison-image" loading="lazy">
+                </div>
+                
+                <!-- 美化后 -->
+                <div class="comparison-card">
+                    <div class="comparison-label after">
+                        <span class="label-icon">✨</span>
+                        <span class="label-text">{{ t('after_beauty') }}</span>
+                    </div>
+                    <img src="/static/images/afterbeauty.png" alt="{{ t('after_image_alt') }}" class="comparison-image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <h2 class="section-title">{{ t('section_features') }}</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">{{ t('feature_design_title') }}</h3>
+                <p class="feature-desc">{{ t('feature_design_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">{{ t('feature_ai_title') }}</h3>
+                <p class="feature-desc">{{ t('feature_ai_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">{{ t('feature_speed_title') }}</h3>
+                <p class="feature-desc">{{ t('feature_speed_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">{{ t('feature_responsive_title') }}</h3>
+                <p class="feature-desc">{{ t('feature_responsive_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3 class="feature-title">{{ t('feature_permanent_title') }}</h3>
+                <p class="feature-desc">{{ t('feature_permanent_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3 class="feature-title">{{ t('feature_offline_title') }}</h3>
+                <p class="feature-desc">{{ t('feature_offline_desc') }}</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 使用场景区域 -->
+    <section class="features" style="background: white;">
+        <h2 class="section-title">{{ t('section_scenarios') }}</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3 class="feature-title">{{ t('scenario_wechat_title') }}</h3>
+                <p class="feature-desc">{{ t('scenario_wechat_desc') }}</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">{{ t('scenario_data_title') }}</h3>
+                <p class="feature-desc">{{ t('scenario_data_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📽️</div>
+                <h3 class="feature-title">{{ t('scenario_ppt_title') }}</h3>
+                <p class="feature-desc">{{ t('scenario_ppt_desc') }}</p>
+            </div>                        
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3 class="feature-title">{{ t('scenario_docs_title') }}</h3>
+                <p class="feature-desc">{{ t('scenario_docs_desc') }}</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">{{ t('scenario_social_title') }}</h3>
+                <p class="feature-desc">{{ t('scenario_social_desc') }}</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3 class="feature-title">{{ t('scenario_blog_title') }}</h3>
+                <p class="feature-desc">{{ t('scenario_blog_desc') }}</p>
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="article-list-section">
+        <h2 class="section-title" id="showcase">{{ t('section_cases') }}</h2>
+        <div class="article-list">
+            
+            <div class="list-item">
+                <a href="/p/qkjwrkgm" target="_blank" title="{{ t('case_champion_title') }}">🏆从追风少年到世界冠军</a>
+            </div>
+            <div class="list-item">
+                <a href="/p/kdvaerfm" target="_blank" title="{{ t('case_ai_intro_title') }}">🤖 通俗易懂介绍AI入门概念</a>
+            </div>
+            <div class="list-item">
+                <a href="/p/hkakcflx" target="_blank" title="{{ t('case_ai_employee_title') }}">🦞 2026爆火AI"小龙虾"：真正能干活的数字员工</a>
+            </div>
+            <div class="list-item">
+                <a href="/p/umjisfqv" target="_blank" title="{{ t('case_reimbursement_title') }}">💰 员工出差报销分析</a>
+            </div>
+            <div class="list-item">
+                <a href="/p/gtukipwb" target="_blank" title="{{ t('case_text_dignity_title') }}">📌 它能让你发出去的任何文字，都变得"体面"</a>
+            </div>
+            <div class="list-item">
+                <a href="/p/tgureevs" target="_blank" title="{{ t('case_lady_chatterley_title') }}">⭐ 查泰莱夫人的情人</a>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- 数据统计区域 -->
+    <section class="stats-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 20px; color: white;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title" style="color: white; margin-bottom: 15px;">{{ t('stats_title') }}</h2>
+            <p style="font-size: 1.2em; opacity: 0.9; margin-bottom: 50px;">{{ t('stats_subtitle') }}</p>
+            
+            <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                <div class="stat-item" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                    <div class="stat-number" id="statArticles" style="font-size: 3em; font-weight: 700; margin-bottom: 10px; background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5.6K+</div>
+                    <div class="stat-label" style="font-size: 1.1em; opacity: 0.9;">{{ t('stats_articles') }}</div>
+                </div>
+                
+                <div class="stat-item" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                    <div class="stat-number" id="statUsers" style="font-size: 3em; font-weight: 700; margin-bottom: 10px; background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">3.5K+</div>
+                    <div class="stat-label" style="font-size: 1.1em; opacity: 0.9;">{{ t('stats_users') }}</div>
+                </div>
+                
+                <div class="stat-item" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                    <div class="stat-number" id="statTodayViews" style="font-size: 3em; font-weight: 700; margin-bottom: 10px; background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">12K+</div>
+                    <div class="stat-label" style="font-size: 1.1em; opacity: 0.9;">{{ t('stats_today_views') }}</div>
+                </div>
+                
+                <div class="stat-item" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                    <div class="stat-number" id="statTotalViews" style="font-size: 3em; font-weight: 700; margin-bottom: 10px; background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">1.4M+</div>
+                    <div class="stat-label" style="font-size: 1.1em; opacity: 0.9;">{{ t('stats_total_views') }}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ 常见问题区域 -->
+    <section class="features" style="background: #f8f9fa;">
+        <h2 class="section-title">{{ t('faq_title') }}</h2>
+        <div class="faq-container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+            <div class="faq-item" style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.2em;">{{ t('faq_q1') }}</h3>
+                <p style="color: #555; line-height: 1.8;">{{ t('faq_a1') }}</p>
+            </div>
+            <div class="faq-item" style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.2em;">{{ t('faq_q2') }}</h3>
+                <p style="color: #555; line-height: 1.8;">{{ t('faq_a2') }}</p>
+            </div>
+            <div class="faq-item" style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.2em;">{{ t('faq_q3') }}</h3>
+                <p style="color: #555; line-height: 1.8;">{{ t('faq_a3') }}</p>
+            </div>
+            <div class="faq-item" style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.2em;">{{ t('faq_q4') }}</h3>
+                <p style="color: #555; line-height: 1.8;">{{ t('faq_a4') }}</p>
+            </div>
+            <div class="faq-item" style="background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.2em;">{{ t('faq_q5') }}</h3>
+                <p style="color: #555; line-height: 1.8;">{{ t('faq_a5') }}</p>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 100px 20px;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px;">{{ t('cta_ready') }}</h2>
+        <p style="font-size: 1.3em; margin-bottom: 40px; opacity: 0.9;">{{ t('cta_subtitle') }}</p>
+        <a href="/html-formatter" class="cta-button" style="background: white; color: #667eea;">{{ t('cta_free_trial') }}</a>
+        <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">{{ t('no_registration') }}</p>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <p style="margin: 15px 0; font-size: 2em; opacity: 0.8;">{{ t('footer_domain') }}</p>
+            <p style="margin: 15px 0; font-size: 1.1em;">{{ t('footer_slogan') }}</p>
+            <div class="copyright">
+                {{ t('copyright_text') }}<br>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            // 保存到 localStorage
+            localStorage.setItem('userLanguage', lang);
+            
+            // 发送到后端设置 Cookie
+            fetch('/api/set-language', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({language: lang})
+            }).then(() => {
+                // 刷新页面
+                window.location.reload();
+            }).catch(err => {
+                console.error('Failed to set language:', err);
+                // 即使 API 调用失败，也刷新页面
+                window.location.reload();
+            });
+        }
+        
+        // 页面加载时检查 localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('userLanguage');
+            const currentLang = '{{ lang }}';
+            if (savedLang && savedLang !== currentLang) {
+                // 如果 localStorage 与当前语言不一致,自动切换
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+</html>

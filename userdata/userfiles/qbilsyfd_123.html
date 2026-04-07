@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>123</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      background: linear-gradient(90deg, #6a11cb, #b227c5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .content-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-top: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    p {
+      font-size: 1.2rem;
+      text-align: center;
+      color: #555;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 12px;
+      background: #f9f9f9;
+      border-left: 4px solid #6a11cb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .emoji {
+      font-size: 2rem;
+      margin-right: 8px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+    }
+    .powered-by {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .powered-by:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>123</h1>
+    <div class="content-card">
+      <p><span class="emoji">✨</span> 123</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/" target="_blank" class="powered-by">🌟 
+    <!-- 下载按钮 -->
+    <div style="text-align: center; margin: 30px 0;">
+        <button id="downloadBtn" onclick="downloadCurrentPage()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'">
+            📥 下载此页面
+        </button>
+    </div>
+    
+    <script>
+        function downloadCurrentPage() {
+            // 获取当前页面的完整 HTML
+            const htmlContent = document.documentElement.outerHTML;
+            
+            // 创建一个 Blob 对象
+            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+            
+            // 创建下载链接
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成文件名（使用页面标题）
+            const title = document.title || 'page';
+            const filename = title.replace(/[^\w一-鿿]/g, '_') + '.html';
+            a.download = filename;
+            
+            // 触发下载
+            document.body.appendChild(a);
+            a.click();
+            
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+    </script>
+
+powered by 深表美文</a>
+  </div>
+</body>
+</html>

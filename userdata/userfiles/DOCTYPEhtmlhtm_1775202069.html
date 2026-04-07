@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📄 图书管理系统登录页面代码解析</title>
+</head>
+<body style="margin: 0; padding: 20px; font-family: PingFang SC, Microsoft YaHei, SimHei, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); color: #333; line-height: 1.7;">
+    <!-- 主标题 -->
+    <div style="max-width: 1000px; margin: 0 auto 40px auto; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 24px; box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3); text-align: center; color: white;">
+        <h1 style="margin: 0; font-size: 2.8em; font-weight: 800; margin-bottom: 16px;">📄 图书管理系统登录页面代码解析</h1>
+        <p style="margin: 0; font-size: 1.2em; opacity: 0.9;">一个完整的HTML登录页面实现</p>
+    </div>
+
+    <!-- 内容容器 -->
+    <div style="max-width: 1000px; margin: 0 auto;">
+
+        <!-- 引言卡片 -->
+        <div style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); border-left: 6px solid #667eea;">
+            <p style="font-size: 1.3em; color: #555; margin: 0; line-height: 1.8;">
+                本文档完整展示了一个“图书管理系统”登录页面的HTML、CSS和JavaScript源代码。我们将逐段分析其结构与样式，并确保原文代码<span style="background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); padding: 2px 8px; border-radius: 4px; font-weight: 600;">一字不差</span>地呈现。
+            </p>
+        </div>
+
+        <!-- 章节1：文档结构 -->
+        <div style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+            <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                <div style="width: 42px; height: 42px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; flex-shrink: 0;">
+                    <span style="color: white; font-weight: bold; font-size: 1.2em;">1</span>
+                </div>
+                <h2 style="margin: 0; font-size: 1.8em; color: #333;">📋 完整的HTML文档结构</h2>
+            </div>
+            <p style="margin-bottom: 20px; color: #555;">
+                以下是页面的完整HTML代码，从 <span style="font-family: monospace; background-color: #f8f9fa; padding: 2px 6px; border-radius: 4px; border: 1px solid #e9ecef;">&lt;!DOCTYPE html&gt;</span> 开始。
+            </p>
+            <!-- 代码块展示 -->
+            <div style="background: #2d3748; border-radius: 12px; padding: 25px; overflow-x: auto; margin-bottom: 25px;">
+                <pre style="margin: 0; color: #e2e8f0; font-family: monospace; font-size: 0.95em; line-height: 1.6;"><span style="color: #63b3ed;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #63b3ed;">&lt;html lang="zh-CN"&gt;</span>
+<span style="color: #63b3ed;">&lt;head&gt;</span>
+    <span style="color: #63b3ed;">&lt;meta charset="UTF-8"&gt;</span>
+    <span style="color: #63b3ed;">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
+    <span style="color: #63b3ed;">&lt;title&gt;</span><span style="color: #f7fafc;">图书管理系统 - 登录</span><span style="color: #63b3ed;">&lt;/title&gt;</span></pre>
+            </div>
+            <p style="color: #666; font-size: 0.95em;">
+                文档类型声明、语言设置、字符编码和视口配置是构建现代响应式网页的基础。
+            </p>
+        </div>
+
+        <!-- 章节2：CSS样式分析 -->
+        <div style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+            <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                <div style="width: 42px; height: 42px; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; flex-shrink: 0;">
+                    <span style="color: white; font-weight: bold; font-size: 1.2em;">2</span>
+                </div>
+                <h2 style="margin: 0; font-size: 1.8em; color: #333;">🎨 CSS样式分析</h2>
+            </div>
+            <p style="margin-bottom: 20px; color: #555;">
+                页面内嵌了完整的CSS样式，定义了全局重置、布局、动画和组件样式。
+            </p>
+
+            <!-- 对比卡片：全局样式 -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px;">
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 16px; padding: 25px;">
+                    <h3 style="margin-top: 0; color: #92400e; display: flex; align-items: center;"><span style="margin-right: 8px;">🔧</span> 全局重置</h3>
+                    <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        * {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;margin: 0;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;padding: 0;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;box-sizing: border-box;<br>
+                        }
+                    </div>
+                </div>
+                <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 16px; padding: 25px;">
+                    <h3 style="margin-top: 0; color: #1e40af; display: flex; align-items: center;"><span style="margin-right: 8px;">🎯</span> 主体背景</h3>
+                    <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        body {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;background: <span style="color: #dc2626; font-weight: bold;">linear-gradient(135deg, #667eea 0%, #764ba2 100%)</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;display: flex;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;align-items: center;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;justify-content: center;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- 完整CSS代码块 -->
+            <div style="margin-bottom: 25px;">
+                <div style="background: #4a5568; color: white; padding: 12px 20px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">📜</span> 完整CSS样式代码
+                </div>
+                <div style="background: #2d3748; border-radius: 0 0 12px 12px; padding: 25px; overflow-x: auto;">
+                    <pre style="margin: 0; color: #e2e8f0; font-family: monospace; font-size: 0.9em; line-height: 1.6;"><span style="color: #90cdf4;">/* 全局样式重置 */</span>
+<span style="color: #fbb6ce;">*</span> {
+    <span style="color: #fed7d7;">margin</span>: <span style="color: #fbd38d;">0</span>;
+    <span style="color: #fed7d7;">padding</span>: <span style="color: #fbd38d;">0</span>;
+    <span style="color: #fed7d7;">box-sizing</span>: <span style="color: #fbd38d;">border-box</span>;
+}
+
+<span style="color: #90cdf4;">/* 设置html和body高度为100% */</span>
+<span style="color: #fbb6ce;">html</span>, <span style="color: #fbb6ce;">body</span> {
+    <span style="color: #fed7d7;">height</span>: <span style="color: #fbd38d;">100%</span>;
+}
+
+<span style="color: #90cdf4;">/* 主体样式 */</span>
+<span style="color: #fbb6ce;">body</span> {
+    <span style="color: #fed7d7;">font-family</span>: <span style="color: #fbd38d;">Arial, sans-serif</span>;
+    <span style="color: #fed7d7;">line-height</span>: <span style="color: #fbd38d;">1.6</span>;
+    <span style="color: #fed7d7;">background</span>: <span style="color: #fbd38d;">linear-gradient(135deg, #667eea 0%, #764ba2 100%)</span>;
+    <span style="color: #fed7d7;">display</span>: <span style="color: #fbd38d;">flex</span>;
+    <span style="color: #fed7d7;">align-items</span>: <span style="color: #fbd38d;">center</span>;
+    <span style="color: #fed7d7;">justify-content</span>: <span style="color: #fbd38d;">center</span>;
+}
+
+<span style="color: #90cdf4;">/* 登录容器 */</span>
+<span style="color: #fbb6ce;">.login-container</span> {
+    <span style="color: #fed7d7;">background-color</span>: <span style="color: #fbd38d;">white</span>;
+    <span style="color: #fed7d7;">border-radius</span>: <span style="color: #fbd38d;">10px</span>;
+    <span style="color: #fed7d7;">box-shadow</span>: <span style="color: #fbd38d;">0 10px 30px rgba(0,0,0,0.1)</span>;
+    <span style="color: #fed7d7;">padding</span>: <span style="color: #fbd38d;">40px</span>;
+    <span style="color: #fed7d7;">width</span>: <span style="color: #fbd38d;">400px</span>;
+    <span style="color: #fed7d7;">max-width</span>: <span style="color: #fbd38d;">90%</span>;
+    <span style="color: #fed7d7;">animation</span>: <span style="color: #fbd38d;">slideIn 0.5s ease</span>;
+}
+
+<span style="color: #90cdf4;">/* 滑入动画 */</span>
+<span style="color: #fbb6ce;">@keyframes slideIn</span> {
+    <span style="color: #fbb6ce;">from</span> {
+        <span style="color: #fed7d7;">transform</span>: <span style="color: #fbd38d;">translateY(-50px)</span>;
+        <span style="color: #fed7d7;">opacity</span>: <span style="color: #fbd38d;">0</span>;
+    }
+    <span style="color: #fbb6ce;">to</span> {
+        <span style="color: #fed7d7;">transform</span>: <span style="color: #fbd38d;">translateY(0)</span>;
+        <span style="color: #fed7d7;">opacity</span>: <span style="color: #fbd38d;">1</span>;
+    }
+}
+
+<span style="color: #90cdf4;">/* 标题样式 */</span>
+<span style="color: #fbb6ce;">.login-title</span> {
+    <span style="color: #fed7d7;">text-align</span>: <span style="color: #fbd38d;">center</span>;
+    <span style="color: #fed7d7;">margin-bottom</span>: <span style="color: #fbd38d;">30px</span>;
+}
+
+<span style="color: #fbb6ce;">.login-title h1</span> {
+    <span style="color: #fed7d7;">font-size</span>: <span style="color: #fbd38d;">24px</span>;
+    <span style="color: #fed7d7;">font-weight</span>: <span style="color: #fbd38d;">600</span>;
+    <span style="color: #fed7d7;">color</span>: <span style="color: #fbd38d;">#333</span>;
+    <span style="color: #fed7d7;">margin-bottom</span>: <span style="color: #fbd38d;">10px</span>;
+}
+
+<span style="color: #fbb6ce;">.login-title p</span> {
+    <span style="color: #fed7d7;">font-size</span>: <span style="color: #fbd38d;">14px</span>;
+    <span style="color: #fed7d7;">color</span>: <span style="color: #fbd38d;">#666</span>;
+}
+
+<span style="color: #90cdf4;">/* 表单样式 */</span>
+<span style="color: #fbb6ce;">.login-form</span> {
+    <span style="color: #fed7d7;">display</span>: <span style="color: #fbd38d;">flex</span>;
+    <span style="color: #fed7d7;">flex-direction</span>: <span style="color: #fbd38d;">column</span>;
+    <span style="color: #fed7d7;">gap</span>: <span style="color: #fbd38d;">20px</span>;
+}
+
+<span style="color: #90cdf4;">/* 表单组样式 */</span>
+<span style="color: #fbb6ce;">.form-group</span> {
+    <span style="color: #fed7d7;">display</span>: <span style="color: #fbd38d;">flex</span>;
+    <span style="color: #fed7d7;">flex-direction</span>: <span style="color: #fbd38d;">column</span>;
+    <span style="color: #fed7d7;">gap</span>: <span style="color: #fbd38d;">8px</span>;
+}
+
+<span style="color: #90cdf4;">/* 标签样式 */</span>
+<span style="color: #fbb6ce;">.form-group label</span> {
+    <span style="color: #fed7d7;">font-size</span>: <span style="color: #fbd38d;">14px</span>;
+    <span style="color: #fed7d7;">font-weight</span>: <span style="color: #fbd38d;">500</span>;
+    <span style="color: #fed7d7;">color</span>: <span style="color: #fbd38d;">#333</span>;
+}
+
+<span style="color: #90cdf4;">/* 输入框样式 */</span>
+<span style="color: #fbb6ce;">.form-group input</span> {
+    <span style="color: #fed7d7;">padding</span>: <span style="color: #fbd38d;">12px 15px</span>;
+    <span style="color: #fed7d7;">border</span>: <span style="color: #fbd38d;">1px solid #d9d9d9</span>
+
+    <!-- 页面底部标识 - powered by 深表美文 -->
+    <div style="text-align: center; margin-top: 60px; padding: 30px 0; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 16px;">
+      <a href="http://p.isheet.net/beauty_html" target="_blank" style="text-decoration: none; color: #667eea; font-size: 16px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;" onmouseover="this.style.color='#764ba2'; this.style.transform='scale(1.05)'" onmouseout="this.style.color='#667eea'; this.style.transform='scale(1)'">
+        🎨 <span>powered by 深表美文</span>
+      </a>
+    </div>
+    
+</body>
+</html>

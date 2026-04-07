@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>123</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 800px;
+      width: 95%;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .header {
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2c3e50;
+      background: linear-gradient(90deg, #6a11cb, #b85dce, #ff6b9c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      letter-spacing: 1px;
+      margin: 0;
+      padding: 20px 0;
+    }
+    .content-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      padding: 30px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .content-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+    }
+    .content-text {
+      font-size: 1.2rem;
+      color: #444;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+    .emoji {
+      font-size: 2rem;
+      margin: 0 5px;
+    }
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+    }
+    .powered-by {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #6a11cb, #b85dce, #ff6b9c);
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .powered-by:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(106, 17, 203, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>123</h1>
+    </div>
+
+    <div class="content-card">
+      <p class="content-text">123 <span class="emoji">✨</span></p>
+    </div>
+
+    <div class="footer">
+      <a href="/" target="_blank" class="powered-by">✨ 
+    <!-- 下载按钮 -->
+    <style>
+        #downloadBtn {
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+        }
+        #downloadBtn:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+        <button id="downloadBtn" onclick="downloadCurrentPage()" title="下载本网页到本地">
+            📥 下载
+        </button>
+    </div>
+    
+    <script>
+        function downloadCurrentPage() {
+            // 获取当前页面的完整 HTML
+            const htmlContent = document.documentElement.outerHTML;
+            
+            // 移除下载按钮元素及其样式
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                // 移除按钮容器
+                const container = downloadBtn.parentElement;
+                if (container) {
+                    container.remove();
+                }
+                // 移除相关的 style 标签
+                const styles = document.querySelectorAll('style');
+                styles.forEach(style => {
+                    if (style.textContent.includes('#downloadBtn')) {
+                        style.remove();
+                    }
+                });
+            }
+            
+            // 创建一个 Blob 对象（使用移除按钮后的 HTML）
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+            
+            // 创建下载链接
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成文件名（使用页面标题）
+            const title = document.title || 'page';
+            const filename = title.replace(/[^\w一-鿿]/g, '_') + '.html';
+            a.download = filename;
+            
+            // 触发下载
+            document.body.appendChild(a);
+            a.click();
+            
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+    </script>
+
+powered by 深表美文</a>
+    </div>
+  </div>
+</body>
+</html>

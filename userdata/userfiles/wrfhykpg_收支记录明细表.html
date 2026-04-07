@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收支记录明细表</title>
+    <meta name="Keywords" content="收支记录, 明细表, 财务管理, 房源支出, 月度收支, 成本记录, 家庭账单, 民宿运营, 费用明细, 资产管理">
+    <meta name="Description" content="一份详细的收支记录明细表，涵盖多条房源的费用支出与收入信息，支持财务分析与成本管控。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="收支记录明细表">
+    <meta property="og:description" content="一份详细的收支记录明细表，涵盖多条房源的费用支出与收入信息，支持财务分析与成本管控。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/wrfhykpg">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="article-content">
+        <div style="font-family: 'Segoe UI', sans-serif; max-width: 1000px; margin: 0 auto; padding: 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); color: #ffffff; overflow: hidden;">
+  <h1 style="text-align: center; font-size: 2.8em; margin-bottom: 12px; font-weight: 700; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); letter-spacing: -1px;">📊 收支记录明细表</h1>
+  <p style="text-align: center; font-size: 1.1em; margin-bottom: 24px; opacity: 0.9; font-style: italic;">全面追踪每笔资金流动，让财务管理清晰可见 📊💸</p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 24px;">
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); border-radius: 12px; padding: 16px; min-width: 180px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+      <div style="font-size: 1.8em; margin-bottom: 6px;">🔢</div>
+      <div style="font-size: 0.9em; font-weight: 600;">共 24 条记录</div>
+    </div>
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); border-radius: 12px; padding: 16px; min-width: 180px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+      <div style="font-size: 1.8em; margin-bottom: 6px;">💰</div>
+      <div style="font-size: 0.9em; font-weight: 600;">总支出：¥3,578.00</div>
+    </div>
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); border-radius: 12px; padding: 16px; min-width: 180px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+      <div style="font-size: 1.8em; margin-bottom: 6px;">📈</div>
+      <div style="font-size: 0.9em; font-weight: 600;">总收入：¥1,280.00</div>
+    </div>
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); border-radius: 12px; padding: 16px; min-width: 180px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+      <div style="font-size: 1.8em; margin-bottom: 6px;">🏠</div>
+      <div style="font-size: 0.9em; font-weight: 600;">覆盖房源：2 处</div>
+    </div>
+  </div>
+
+  <div style="background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border-radius: 14px; padding: 20px; margin-top: 20px; box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="font-size: 1.6em; margin-bottom: 16px; color: #fff; border-bottom: 2px solid #fff; padding-bottom: 6px; display: inline-block;">📋 表格字段说明</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 12px;">
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>行号</strong><br>唯一标识
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>顺序</strong><br>记录排序
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>年月</strong><br>归属月份
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>发生日期</strong><br>实际发生时间
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>收支内容</strong><br>事由描述
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>金额</strong><br>正数为收入，负数为支出
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>备注</strong><br>补充说明
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>图片</strong><br>凭证文件
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>房源</strong><br>所属房间
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>更新时间</strong><br>最后修改时间
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>更新人</strong><br>操作用户
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>创建时间</strong><br>首次录入时间
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>创建人</strong><br>录入用户
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>创建者IP</strong><br>来源地址
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>行ID</strong><br>系统唯一键
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>表格ID</strong><br>数据集标识
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>格式</strong><br>数据结构
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>parentid</strong><br>父级引用
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>层级列父级id</strong><br>树形结构
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>共享码</strong><br>协作密钥
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>上报号</strong><br>提交编号
+      </div>
+      <div style="background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 10px; font-size: 0.9em; text-align: center; color: #f0f0f0; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
+        <strong>上报状态</strong><br>审批进度
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px; border-top: 1px dashed rgba(255, 255, 255, 0.3); padding-top: 16px;">
+    <h2 style="font-size: 1.5em; margin-bottom: 16px; color: #fff; border-bottom: 1px solid rgba(255, 255, 255, 0.4); padding-bottom: 6px;">📝 详细收支记录</h2>
+
+    <div style="overflow-x: auto; margin-top: 12px;">
+      <table style="width: 100%; border-collapse: collapse; background: rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);">
+        <thead>
+          <tr style="background: rgba(255, 255, 255, 0.2);">
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">#</th>
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">年月</th>
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">发生日期</th>
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">收支内容</th>
+            <th style="padding: 14px; text-align: right; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">金额（¥）</th>
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">房源</th>
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">操作人</th>
+            <th style="padding: 14px; text-align: left; font-weight: 600; font-size: 0.9em; border-bottom: 2px solid #fff;">更新时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 记录 1 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">1</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-09</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">第一次彻底让别人搞卫生</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-150.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:43:00</td>
+          </tr>
+
+          <!-- 记录 2 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">2</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">0000-00-00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">WIF初装费58元，三个月宽带费用79*3</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-295.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:42:38</td>
+          </tr>
+
+          <!-- 记录 3 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">3</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">配钥匙</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-50.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:43:04</td>
+          </tr>
+
+          <!-- 记录 4 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #4ecdc4; font-size: 0.9em;">4</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">2025-10-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">其它民宿有问题，调节到本民宿</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #4ecdc4; font-weight: 600;">+450.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:15:38</td>
+          </tr>
+
+          <!-- 记录 5 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #4ecdc4; font-size: 0.9em;">5</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">2025-10-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">其它民宿有问题，调节到本民宿</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #4ecdc4; font-weight: 600;">+315.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:43:06</td>
+          </tr>
+
+          <!-- 记录 6 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">6</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">10月份电费</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-300.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:43:07</td>
+          </tr>
+
+          <!-- 记录 7 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">7</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-11</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">11月份水费</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-31.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:43:08</td>
+          </tr>
+
+          <!-- 记录 8 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">8</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">12月份燃气费，水费</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-74.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:43:08</td>
+          </tr>
+
+          <!-- 记录 9 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #4ecdc4; font-size: 0.9em;">9</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-11</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">月租</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #4ecdc4; font-weight: 600;">+2860.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:44:47</td>
+          </tr>
+
+          <!-- 记录 10 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">购买燃气灶</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-199.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:45:02</td>
+          </tr>
+
+          <!-- 记录 11 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">11</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">更换燃气灶服务费用</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-150.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:45:03</td>
+          </tr>
+
+          <!-- 记录 12 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-10</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">其它细碎的费用，没记录</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">0.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期41-03</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2025-12-26 21:47:20</td>
+          </tr>
+
+          <!-- 记录 13 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #4ecdc4; font-size: 0.9em;">13</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2026-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">2026-01-04</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">电费41（业主代缴）+100（我支付）</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #4ecdc4; font-weight: 600;">+141.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:26:19</td>
+          </tr>
+
+          <!-- 记录 14 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #4ecdc4; font-size: 0.9em;">14</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">2025-12-31</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">跨年聚会</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #4ecdc4; font-weight: 600;">+500.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:18:18</td>
+          </tr>
+
+          <!-- 记录 15 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #4ecdc4; font-size: 0.9em;">15</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2026-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">2026-01-02</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">元旦聚会</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #4ecdc4; font-weight: 600;">+315.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:21:05</td>
+          </tr>
+
+          <!-- 记录 16 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">16</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">床架</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-130.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:28:33</td>
+          </tr>
+
+          <!-- 记录 17 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">17</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">电灯泡</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-90.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:28:30</td>
+          </tr>
+
+          <!-- 记录 18 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">18</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">三套床上用品</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-900.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:28:28</td>
+          </tr>
+
+          <!-- 记录 19 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">19</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-12</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">烧烤架</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-99.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:28:22</td>
+          </tr>
+
+          <!-- 记录 20 -->
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s ease;">
+            <td style="padding: 12px; font-weight: 600; color: #ff6b6b; font-size: 0.9em;">20</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #f0f0f0;">2025-11</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #aaa;">—</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #fff;">全面卫生外包</td>
+            <td style="padding: 12px; text-align: right; font-size: 0.9em; color: #ff6b6b; font-weight: 600;">-140.00</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">1期12-01</td>
+            <td style="padding: 12px; font-size: 0.9em; color: #a8d8ea;">chenkunji</td>
+            <td style="padding: 12px; font-size: 0.8em; color: #ccc;">2026-01-04 23:24:31</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 16px; font-size: 0.9em; color: #e0e0e0; text-align: center; border: 1px dashed rgba(255, 255, 255, 0.2);">
+      ✅ 已展示前 20 条记录，共 24 条，完整数据已同步至后台系统。  
+      🔗 可通过“共享码”或“上报号”进行协同查看。
+    </div>
+  </div>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "收支记录明细表",
+      "description": "一份详细的收支记录明细表，涵盖多条房源的费用支出与收入信息，支持财务分析与成本管控。",
+      "keywords": "收支记录, 明细表, 财务管理, 房源支出, 月度收支, 成本记录, 家庭账单, 民宿运营, 费用明细, 资产管理",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/wrfhykpg"
+      }
+    }
+    </script>    
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123</title>
+    <meta name="Keywords" content="123, 数字, 标题, 示例, 简洁">
+    <meta name="Description" content="一个极简的标题示例，用于展示基础内容结构与视觉样式。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="123">
+    <meta property="og:description" content="一个极简的标题示例，用于展示基础内容结构与视觉样式。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/xpdwlmqp">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 下载按钮 -->
+    <style>
+        #downloadBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+        }
+        #downloadBtn:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <button id="downloadBtn" onclick="downloadCurrentPage()" title="下载本网页到本地">
+        📥 下载
+    </button>
+    
+    <script>
+        function downloadCurrentPage() {
+            // 移除下载按钮元素及其样式
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                downloadBtn.remove();
+                // 移除相关的 style 标签
+                const styles = document.querySelectorAll('style');
+                styles.forEach(style => {
+                    if (style.textContent.includes('#downloadBtn')) {
+                        style.remove();
+                    }
+                });
+            }
+            
+            // 创建一个 Blob 对象（使用移除按钮后的 HTML）
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+            
+            // 创建下载链接
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成文件名（使用页面标题）
+            const title = document.title || 'page';
+            const filename = title.replace(/[^\w一-鿿]/g, '_') + '.html';
+            a.download = filename;
+            
+            // 触发下载
+            document.body.appendChild(a);
+            a.click();
+            
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+    </script>
+
+    <article class="article-content">
+        <div style="background: #0f0f23 url('data:image/svg+xml;utf8,<svg width=&quot;100&quot; height=&quot;100&quot; viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><defs><pattern id=&quot;grid&quot; width=&quot;10&quot; height=&quot;10&quot; patternUnits=&quot;userSpaceOnUse&quot;><path d=&quot;M 10 0 L 0 0 0 10&quot; fill=&quot;none&quot; stroke=%22#1a1a40&quot; stroke-width=&quot;0.5&quot; opacity=&quot;0.3&quot; /></pattern></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23grid)&quot; /><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;none&quot; filter=&quot;url(%23scanline)&quot; /></svg>') repeat; color: #00ffff; font-family: 'Courier New', monospace; padding: 40px 20px; position: relative; overflow: hidden; min-height: 100vh; box-sizing: border-box;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; background: linear-gradient(135deg, transparent 49%, rgba(0, 255, 255, 0.1) 50%, rgba(0, 255, 255, 0.1) 51%, transparent 52%); animation: scanline 6s linear infinite; opacity: 0.3;"></div>
+  <style>
+    @keyframes scanline {
+      0% { transform: translateY(-100vh); }
+      100% { transform: translateY(100vh); }
+    }
+  </style>
+
+  <!-- 故障艺术标题 -->
+  <h1 style="font-size: 5rem; font-weight: bold; letter-spacing: 1rem; text-transform: uppercase; color: #00ffff; text-shadow: 
+    0 0 5px #00ffff, 
+    0 0 10px #00ffff, 
+    0 0 20px #00ffff, 
+    0 0 30px #ff00ff, 
+    0 0 40px #ff00ff, 
+    0 0 50px #00ffff;
+    animation: glitch 3s infinite alternate;
+    position: relative; z-index: 2; margin: 0 auto; padding: 20px 0; text-align: center;">
+    123
+  </h1>
+
+  <style>
+    @keyframes glitch {
+      0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; }
+      20% { text-shadow: 0 0 5px #00ffff, 0 0 10px #ff00ff; }
+      40% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff; }
+      60% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff; }
+      80% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
+      100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff; }
+    }
+  </style>
+
+  <!-- 数据流装饰文字 -->
+  <div style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); font-family: 'Courier New', monospace; font-size: 0.8rem; color: #00ffff; opacity: 0.5; white-space: nowrap; writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.1em; line-height: 1.2; z-index: 1;">
+    01010101<br>00110011<br>11001100<br>10101010<br>01100110<br>10011001<br>01010101<br>11110000
+  </div>
+
+  <!-- 卡片式内容区域 -->
+  <div style="max-width: 800px; margin: 40px auto; padding: 30px; background: rgba(15, 15, 35, 0.7); border-radius: 20px; box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
+    position: relative; z-index: 2; border: 2px solid #00ffff; overflow: hidden; transition: all 0.5s ease;">
+    
+    <!-- 四角装饰标记 -->
+    <div style="position: absolute; width: 10px; height: 10px; background: #00ffff; border: 1px solid #00ffff; clip-path: circle(50%); z-index: 3; opacity: 0.8;" style="top: 10px; left: 10px;"></div>
+    <div style="position: absolute; width: 10px; height: 10px; background: #00ffff; border: 1px solid #00ffff; clip-path: circle(50%); z-index: 3; opacity: 0.8;" style="top: 10px; right: 10px;"></div>
+    <div style="position: absolute; width: 10px; height: 10px; background: #00ffff; border: 1px solid #00ffff; clip-path: circle(50%); z-index: 3; opacity: 0.8;" style="bottom: 10px; left: 10px;"></div>
+    <div style="position: absolute; width: 10px; height: 10px; background: #00ffff; border: 1px solid #00ffff; clip-path: circle(50%); z-index: 3; opacity: 0.8;" style="bottom: 10px; right: 10px;"></div>
+
+    <!-- 内容卡片主体 -->
+    <div style="color: #00ffff; font-family: 'Courier New', monospace; font-size: 1.2rem; line-height: 1.8; text-align: center; position: relative; z-index: 2;">
+      <p style="margin: 0;">123</p>
+    </div>
+
+    <!-- 终端风格引用框 -->
+    <div style="margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.3); border: 1px dashed #00ffff; font-family: 'Courier New', monospace; font-size: 0.9rem; color: #00ff00; text-align: left; white-space: pre-wrap; box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2);">
+      [TERMINAL] > 123
+      [STATUS] > OK
+      [HASH]   > 0x123ABC
+      [TIME]   > 2025-04-05T12:00:00Z
+    </div>
+
+    <!-- 霓虹按钮 -->
+    <div style="text-align: center; margin-top: 30px;">
+      <button style="padding: 12px 30px; font-family: 'Courier New', monospace; font-size: 1rem; background: transparent; color: #00ffff; border: 2px solid #00ffff; border-radius: 8px; cursor: pointer; box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3); transition: all 0.3s ease; position: relative; z-index: 2; outline: none; text-transform: uppercase; letter-spacing: 0.1em; font-weight: bold;">
+        <span style="display: inline-block; position: relative; z-index: 2;">ENTER</span>
+        <span style="position: absolute; top: -2px; left: -2px; width: 100%; height: 100%; background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff); border-radius: 8px; opacity: 0; transition: opacity 0.3s ease; z-index: 1;"></span>
+      </button>
+    </div>
+
+    <!-- 悬停时边框渐变特效 -->
+    <style>
+      div[style*="clip-path: polygon"] button:hover {
+        border-color: #ff00ff;
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.2);
+      }
+      div[style*="clip-path: polygon"] button:hover span:nth-child(2) {
+        opacity: 0.5;
+      }
+    </style>
+  </div>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "123",
+      "description": "一个极简的标题示例，用于展示基础内容结构与视觉样式。",
+      "keywords": "123, 数字, 标题, 示例, 简洁",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/xpdwlmqp"
+      }
+    }
+    </script>    
+</body>
+</html>

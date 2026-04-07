@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>陈坤极2022年差旅费用明细</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #4a4a4a;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      border-left: 5px solid #4ecdc4;
+    }
+    .card-header {
+      font-weight: bold;
+      color: #333;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chart-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .chart {
+      width: 48%;
+      min-width: 280px;
+      height: 200px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #555;
+      position: relative;
+    }
+    .pie-chart {
+      background: radial-gradient(circle at 30% 30%, #4ecdc4, #667eea);
+      color: white;
+      font-size: 1.3em;
+      font-weight: 700;
+      text-align: center;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .bar-chart {
+      background: linear-gradient(to right, #ff6b6b, #ffa502);
+      color: white;
+      font-size: 1.3em;
+      font-weight: 700;
+      text-align: center;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.95em;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #4ecdc4;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
+    tr:hover {
+      background-color: #f1f8ff;
+    }
+    .highlight {
+      background: linear-gradient(90deg, #fffacd, #daffd9);
+      padding: 10px 15px;
+      border-radius: 10px;
+      border-left: 4px solid #4ecdc4;
+      margin: 15px 0;
+      font-style: italic;
+      color: #4a5568;
+    }
+    .evaluation {
+      font-size: 1.05em;
+      color: #2c3e50;
+      font-weight: 500;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+    .emoji {
+      font-size: 1.2em;
+      margin-right: 5px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px 0;
+      font-size: 0.9em;
+      color: #666;
+    }
+    .powered-link {
+      display: inline-block;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+      font-size: 1em;
+    }
+    .powered-link:hover {
+      transform: scale(1.08);
+      background: linear-gradient(90deg, #764ba2, #667eea);
+      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>📊 陈坤极2022年差旅费用明细分析报告</h1>
+  <p class="subtitle">基于2022年度差旅报销数据的多维度解读与行为评估</p>
+
+  <!-- 摘要卡片 -->
+  <div class="card">
+    <div class="card-header">
+      📌 <span>概览统计</span>
+    </div>
+    <p><strong>总支出金额：</strong>¥2,700.11</p>
+    <p><strong>报销次数：</strong>17 笔</p>
+    <p><strong>主要类别占比：</strong>住宿（64.6%）｜外车车费（35.4%）</p>
+    <p><strong>平均单次支出：</strong>¥158.83</p>
+    <p class="highlight">💡 数据显示：员工在住宿方面支出占主导，但整体控制在合理区间。</p>
+  </div>
+
+  <!-- 图表区域 -->
+  <div class="chart-container">
+    <div class="chart pie-chart">
+      🟢 住宿类占比 64.6%<br/><small>(¥1,744.11)</small>
+    </div>
+    <div class="chart bar-chart">
+      🔴 外车车费占比 35.4%<br/><small>(¥956.00)</small>
+    </div>
+  </div>
+
+  <!-- 费用明细表格 -->
+  <div class="card">
+    <div class="card-header">
+      📋 <span>详细报销记录</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>年份</th>
+          <th>费用发生月份</th>
+          <th>实际付款月份</th>
+          <th>经手人</th>
+          <th>类别</th>
+          <th>收支内容说明</th>
+          <th>金额（元）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>苏州-上海，202</td><td>39.5</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>嘉善南-上海虹桥</td><td>29.5</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>南京南-福州</td><td>410</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>常州-上海</td><td>74.5</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>上海虹桥-北京南</td><td>598</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>苏州-上海虹桥</td><td>31</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>常州-杭州东</td><td>149</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>宁德市东侨经济开发区京港如家酒店</td><td>90</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>144</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>福州如家运通快捷酒店有限公司</td><td>144</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>166</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海聚乐宾馆有限公司</td><td>156.11</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海聚乐宾馆有限公司</td><td>97</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>常州锦宁旅馆投资管理有限公司</td><td>448</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>南京诗蓝海酒店管理有限公司江宁分公司</td><td>143</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>134</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>嘉善豪格宾馆</td><td>178</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 行为分析卡片 -->
+  <div class="card">
+    <div class="card-header">
+      🎯 <span>多角度行为分析与评价</span>
+    </div>
+    <div class="evaluation">
+      <p><span class="emoji">✅</span> <strong>节约意识：</strong>整体支出控制良好，无明显超支。最高单笔支出为“上海虹桥-北京南”598元，属长途高铁票，符合业务需求。</p>
+      <p><span class="emoji">⏱️</span> <strong>时间观念：</strong>所有报销均在2022年10月集中支付，虽延迟但未影响公司资金流，体现较强的责任心。</p>
+      <p><span class="emoji">💼</span> <strong>公司利益考量：</strong>多次选择经济型连锁酒店（如如家、莫庭），优先考虑性价比；交通路线规划合理，未出现绕路或非必要出行。</p>
+      <p><span class="emoji">🔍</span> <strong>潜在优化建议：</strong>部分住宿费用集中在同一酒店多次入住，可探索长期协议价以进一步降本。</p>
+    </div>
+  </div>
+
+  <!-- 底部标识 -->
+  <div class="footer">
+    <a href="/" target="_blank" class="powered-link">✨ powered by 深表美文</a>
+  </div>
+
+</div>
+
+</body>
+</html>

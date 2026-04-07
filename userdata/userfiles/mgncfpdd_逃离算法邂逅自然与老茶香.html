@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逃离算法，邂逅自然与老茶香</title>
+    <meta name="Keywords" content="font, style, margin, color, border">
+    <meta name="Description" content="---
+METADATASTART---
+keywords: 逃离算法, 自然邂逅, 老茶馆, 慢生活, 陈年普洱, 诗意瞬间, 城市逃离, 心灵疗愈, 郊外水库, 手工茶点
+description: 在阳光与老茶香中，远离算法的喧嚣，邂逅自然的真实与内心的宁静，找回被遗忘的生活诗意。
+---METADATAEN...">
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 下载按钮 -->
+    <style>
+        #downloadBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+        }
+        #downloadBtn:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <button id="downloadBtn" onclick="downloadCurrentPage()" title="下载本网页到本地">
+        📥 下载
+    </button>
+    
+    <script>
+        function downloadCurrentPage() {
+            // 移除下载按钮元素及其样式
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                downloadBtn.remove();
+                // 移除相关的 style 标签
+                const styles = document.querySelectorAll('style');
+                styles.forEach(style => {
+                    if (style.textContent.includes('#downloadBtn')) {
+                        style.remove();
+                    }
+                });
+            }
+            
+            // 创建一个 Blob 对象（使用移除按钮后的 HTML）
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+            
+            // 创建下载链接
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成文件名（使用页面标题）
+            const title = document.title || 'page';
+            const filename = title.replace(/[^\w一-鿿]/g, '_') + '.html';
+            a.download = filename;
+            
+            // 触发下载
+            document.body.appendChild(a);
+            a.click();
+            
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+    </script>
+
+    <article class="article-content">
+        ---
+METADATA_START---
+keywords: 逃离算法, 自然邂逅, 老茶馆, 慢生活, 陈年普洱, 诗意瞬间, 城市逃离, 心灵疗愈, 郊外水库, 手工茶点
+description: 在阳光与老茶香中，远离算法的喧嚣，邂逅自然的真实与内心的宁静，找回被遗忘的生活诗意。
+---METADATA_END---
+<h1 style="font-size:2.4em; font-weight:700; text-align:center; margin:20px 0; background:linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); -webkit-background-clip:text; background-clip:text; color:transparent; padding:15px; border-radius:12px; box-shadow:0 8px 20px rgba(106,17,203,0.3); font-family:'Segoe UI', sans-serif; letter-spacing:0.5px;">✨ 逃离算法，邂逅自然与老茶香 ✨</h1>
+
+<div style="max-width:800px; margin:0 auto; padding:20px; font-family:'Segoe UI', sans-serif; line-height:1.8; color:#333;">
+
+  <p style="text-align:center; font-size:1.1em; color:#555; margin-bottom:20px; font-style:italic;">
+    🌤️ 突然觉得，我们总是在手机里看世界的碎片，却很少真正感受这个季节的温度。
+  </p>
+
+  <div style="background:linear-gradient(135deg, #f0f4f8 0%, #e6f2f9 100%); border-radius:16px; padding:20px; margin:20px 0; box-shadow:0 6px 15px rgba(0,0,0,0.08); border:1px solid #dce6f0;">
+    <h2 style="color:#2c3e50; margin-top:0; font-size:1.6em; border-left:5px solid #6a11cb; padding-left:10px; font-weight:600;">📍 那个被遗忘的角落</h2>
+    <p style="margin:10px 0; font-size:1em; color:#444;">周末天气晴朗，阳光温柔洒落。我偶然发现了一处静谧的郊外水库——步道两侧古树成荫，微风拂过，树叶沙沙作响，仿佛在低语着时光的秘密。</p>
+    <p style="margin:10px 0; font-size:1em; color:#444;">傍晚时分，夕阳将水面染成金红色，云影缓缓滑过湖面，宛如一幅流动的油画。</p>
+    <blockquote style="border-left:4px solid #6a11cb; margin:15px 0; padding:10px 15px; background:#f0f4f8; font-style:italic; font-size:0.95em; color:#555; border-radius:0 8px 8px 0;">
+      🌿 这里没有导航推荐，没有热搜标签，只有真实的光影与呼吸。
+    </blockquote>
+  </div>
+
+  <div style="background:linear-gradient(135deg, #f8f1e6 0%, #f0e3c7 100%); border-radius:16px; padding:20px; margin:20px 0; box-shadow:0 6px 15px rgba(0,0,0,0.08); border:1px solid #e6d9b5;">
+    <h2 style="color:#8b5a2b; margin-top:0; font-size:1.6em; border-left:5px solid #8b5a2b; padding-left:10px; font-weight:600;">🍵 老茶馆里的故事</h2>
+    <p style="margin:10px 0; font-size:1em; color:#555;">更惊喜的是，在水库旁藏着一家本地人私藏的老茶馆。老板是位年近六旬的茶艺师，坚持手工制作茶点，用祖传配方冲泡陈年普洱。</p>
+    <blockquote style="border-left:4px solid #8b5a2b; margin:15px 0; padding:10px 15px; background:#fdf6e4; font-style:italic; font-size:1em; color:#6d4a2a; border-radius:0 8px 8px 0;">
+      💬 “真正的慢，不是浪费时间，而是让心跟上脚步。”
+    </blockquote>
+  </div>
+
+  <div style="background:linear-gradient(135deg, #e6f3f3 0%, #d0e7e7 100%); border-radius:16px; padding:20px; margin:20px 0; box-shadow:0 6px 15px rgba(0,0,0,0.08); border:1px solid #b8d5d5;">
+    <h2 style="color:#2c6d6d; margin-top:0; font-size:1.6em; border-left:5px solid #2c6d6d; padding-left:10px; font-weight:600;">📷 拍下不被定义的瞬间</h2>
+    <p style="margin:10px 0; font-size:1em; color:#444;">带上相机或只用手机，去捕捉那些不属于算法推荐的画面：一片飘落的叶子、一缕穿过树梢的光、茶杯里升腾的热气……这些看似平凡的瞬间，正是生活最本真的诗意。</p>
+    <div style="text-align:center; margin-top:15px; font-size:1.1em; color:#2c6d6d; font-weight:500;">
+      🕰️ 建议预留三到四个小时，不设目标，不计行程，只听内心的声音。
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:25px; font-size:1.4em; font-weight:700; color:#6a11cb; background:linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); -webkit-background-clip:text; background-clip:text; color:transparent; padding:12px 20px; border-radius:20px; display:inline-block; box-shadow:0 4px 12px rgba(106,17,203,0.2);">
+    🌟 你愿意一起，逃离算法的午后吗？
+  </div>
+
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>    
+</body>
+</html>

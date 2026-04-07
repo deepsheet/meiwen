@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t('page_title') }}</title>
+    <meta name="description" content="{{ t('seo_meta_desc') }}">
+    <meta name="keywords" content="文字美化,AI排版,HTML格式化,在线工具,text beautifier,AI layout">
+    <meta property="og:title" content="{{ t('brand_name') }} - {{ t('slogan') }}">
+    <meta property="og:description" content="{{ t('seo_meta_desc') }}">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/formater.css">
+    <style>
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .lang-dropdown-wrapper {
+            position: relative;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 100px;
+            justify-content: space-between;
+        }
+        .lang-btn:hover {
+            background: #f0f0ff;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+        .lang-arrow {
+            font-size: 10px;
+            transition: transform 0.3s;
+        }
+        .lang-btn.active .lang-arrow {
+            transform: rotate(180deg);
+        }
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-width: 120px;
+            z-index: 1001;
+            overflow: hidden;
+        }
+        .lang-option {
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+        .lang-option:hover {
+            background: #f5f7fa;
+            color: #667eea;
+        }
+        .lang-option.selected {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* 样式风格选择器 */
+        .style-selector-wrapper {
+            position: relative;
+        }
+        .style-selector-btn {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .style-selector-btn:hover {
+            border-color: #667eea;
+        }
+        .dropdown-arrow {
+            font-size: 10px;
+            color: #999;
+            transition: transform 0.3s;
+        }
+        .style-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        .style-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .style-option:last-child {
+            border-bottom: none;
+        }
+        .style-option:hover {
+            background: #f5f7fa;
+        }
+        .style-option.selected {
+            background: #667eea;
+            color: white;
+        }
+        .style-icon {
+            font-size: 20px;
+        }
+        .style-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+    
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "{{ t('brand_name') }} - Text Beautifier",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "description": "{{ t('seo_meta_desc') }}",
+      "featureList": [
+        "AI 智能排版",
+        "多种美化模式",
+        "自定义标题",
+        "额外要求设置",
+        "永久链接生成"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <div class="lang-dropdown-wrapper">
+            <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()">
+                <span id="currentLangText">{{ '中文' if lang == 'zh' else 'English' }}</span>
+                <span class="lang-arrow">▼</span>
+            </button>
+            <div id="langDropdown" class="lang-dropdown" style="display: none;">
+                <div class="lang-option {{ 'selected' if lang == 'zh' else '' }}" data-lang="zh" onclick="switchLanguage('zh')">
+                    🇨🇳 中文
+                </div>
+                <div class="lang-option {{ 'selected' if lang == 'en' else '' }}" data-lang="en" onclick="switchLanguage('en')">
+                    🇬🇧 English
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <a href="/" class="back-home">{{ t('back_to_home') }}</a>
+            <h1><img src="/favicon.ico" alt="{{ t('icon_alt') }}" class="header-favicon">{{ t('brand_name') }}</h1>
+            <p>{{ t('slogan') }}</p>
+        </div>
+        
+        <div class="main-card">
+            
+            <div class="form-group">
+                <label for="content">{{ t('label_content') }}</label>
+                <textarea id="content" placeholder="{{ t('placeholder_content') }}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <!-- 核心区：扩写模式 (直接外露) -->
+                <div class="inline-setting-row">
+                    <label class="inline-label">{{ t('label_beauty_mode') }}</label>
+                    <div class="mode-selector-inline">
+                        <label class="mode-option-inline">
+                            <input type="radio" name="beautyMode" value="strict" checked>
+                            <span>{{ t('mode_strict') }}</span>
+                        </label>
+                        <label class="mode-option-inline">
+                            <input type="radio" name="beautyMode" value="interpret">
+                            <span>{{ t('mode_interpret') }}</span>
+                        </label>
+                        <label class="mode-option-inline">
+                            <input type="radio" name="beautyMode" value="expand">
+                            <span>{{ t('mode_expand') }}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- 核心区：样式风格 (直接外露) -->
+                <div class="inline-setting-row">
+                    <label class="inline-label">{{ t('label_style') }}</label>
+                    <div class="style-selector-wrapper-inline">
+                        <button type="button" id="styleSelectorBtn" class="style-selector-btn-inline" onclick="toggleStyleDropdown()">
+                            <span id="selectedStyleText">{{ t('style_auto') }}</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <div id="styleDropdown" class="style-dropdown" style="display: none;">
+                            <div class="style-option selected" data-style="auto" onclick="selectStyle('auto', &quot;{{ t('style_auto') }}&quot;)">
+                                <span class="style-icon">🤖</span>
+                                <span class="style-name">{{ t('style_auto') }}</span>
+                            </div>
+                            <div class="style-option" data-style="default" onclick="selectStyle('default', &quot;{{ t('style_default') }}&quot;)">
+                                <span class="style-icon">📄</span>
+                                <span class="style-name">{{ t('style_default') }}</span>
+                            </div>
+                            <div class="style-option" data-style="minimalist" onclick="selectStyle('minimalist', &quot;{{ t('style_minimalist') }}&quot;)">
+                                <span class="style-icon">⚪</span>
+                                <span class="style-name">{{ t('style_minimalist') }}</span>
+                            </div>
+                            <div class="style-option" data-style="neon_glass" onclick="selectStyle('neon_glass', &quot;{{ t('style_neon_glass') }}&quot;)">
+                                <span class="style-icon">💜</span>
+                                <span class="style-name">{{ t('style_neon_glass') }}</span>
+                            </div>
+                            <div class="style-option" data-style="magazine_gradient" onclick="selectStyle('magazine_gradient', &quot;{{ t('style_magazine_gradient') }}&quot;)">
+                                <span class="style-icon">📰</span>
+                                <span class="style-name">{{ t('style_magazine_gradient') }}</span>
+                            </div>
+                            <div class="style-option" data-style="cyberpunk_neon" onclick="selectStyle('cyberpunk_neon', &quot;{{ t('style_cyberpunk_neon') }}&quot;)">
+                                <span class="style-icon">🌃</span>
+                                <span class="style-name">{{ t('style_cyberpunk_neon') }}</span>
+                            </div>
+                            <div class="style-option" data-style="minimalist_timeline" onclick="selectStyle('minimalist_timeline', &quot;{{ t('style_minimalist_timeline') }}&quot;)">
+                                <span class="style-icon">⏱️</span>
+                                <span class="style-name">{{ t('style_minimalist_timeline') }}</span>
+                            </div>
+                            <div class="style-option" data-style="gradient_glass" onclick="selectStyle('gradient_glass', &quot;{{ t('style_gradient_glass') }}&quot;)">
+                                <span class="style-icon">🌊</span>
+                                <span class="style-name">{{ t('style_gradient_glass') }}</span>
+                            </div>
+                            <div class="style-option" data-style="bold_waves" onclick="selectStyle('bold_waves', &quot;{{ t('style_bold_waves') }}&quot;)">
+                                <span class="style-icon">🌊</span>
+                                <span class="style-name">{{ t('style_bold_waves') }}</span>
+                            </div>
+                            <div class="style-option" data-style="space_cosmic" onclick="selectStyle('space_cosmic', &quot;{{ t('style_space_cosmic') }}&quot;)">
+                                <span class="style-icon">🌌</span>
+                                <span class="style-name">{{ t('style_space_cosmic') }}</span>
+                            </div>
+                            <div class="style-option" data-style="swiss_grid" onclick="selectStyle('swiss_grid', &quot;{{ t('style_swiss_grid') }}&quot;)">
+                                <span class="style-icon">⬛</span>
+                                <span class="style-name">{{ t('style_swiss_grid') }}</span>
+                            </div>
+                            <div class="style-option" data-style="handdrawn_notes" onclick="selectStyle('handdrawn_notes', &quot;{{ t('style_handdrawn_notes') }}&quot;)">
+                                <span class="style-icon">📝</span>
+                                <span class="style-name">{{ t('style_handdrawn_notes') }}</span>
+                            </div>
+                            <div class="style-option" data-style="dark_luxury" onclick="selectStyle('dark_luxury', &quot;{{ t('style_dark_luxury') }}&quot;)">
+                                <span class="style-icon">🖤</span>
+                                <span class="style-name">{{ t('style_dark_luxury') }}</span>
+                            </div>
+                            <div class="style-option" data-style="pastel_soft" onclick="selectStyle('pastel_soft', &quot;{{ t('style_pastel_soft') }}&quot;)">
+                                <span class="style-icon">🌸</span>
+                                <span class="style-name">{{ t('style_pastel_soft') }}</span>
+                            </div>
+                            <div class="style-option" data-style="brutalist_bold" onclick="selectStyle('brutalist_bold', &quot;{{ t('style_brutalist_bold') }}&quot;)">
+                                <span class="style-icon">⚫</span>
+                                <span class="style-name">{{ t('style_brutalist_bold') }}</span>
+                            </div>
+                            <div class="style-option" data-style="kawaii_bubbles" onclick="selectStyle('kawaii_bubbles', &quot;{{ t('style_kawaii_bubbles') }}&quot;)">
+                                <span class="style-icon">💕</span>
+                                <span class="style-name">{{ t('style_kawaii_bubbles') }}</span>
+                            </div>
+                            <div class="style-option" data-style="newspaper_classic" onclick="selectStyle('newspaper_classic', &quot;{{ t('style_newspaper_classic') }}&quot;)">
+                                <span class="style-icon">📰</span>
+                                <span class="style-name">{{ t('style_newspaper_classic') }}</span>
+                            </div>
+                            <div class="style-option" data-style="geometric_modern" onclick="selectStyle('geometric_modern', &quot;{{ t('style_geometric_modern') }}&quot;)">
+                                <span class="style-icon">🔷</span>
+                                <span class="style-name">{{ t('style_geometric_modern') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selectedStyle" value="auto">
+                    
+                    <!-- 高级设置按钮移到右侧 -->
+                    <button type="button" id="toggleMoreSettingsBtn" class="advanced-settings-btn" onclick="toggleMoreSettings()">
+                        {{ t('more_settings') }}
+                    </button>
+                </div>
+            </div>
+
+            <!-- 进阶区：折叠内容（不再包含按钮） -->
+            <div id="moreSettingsContainer" class="more-settings-container" style="display: none;">
+                    <div class="form-group">
+                        <label>{{ t('label_title') }}</label>
+                        <div id="articleTitleContainer" class="article-title-container">
+                            <input type="text" id="title" placeholder="{{ t('placeholder_title') }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <label style="margin-bottom: 0;">{{ t('label_extra_requirements') }}</label>
+                            <div class="quick-presets-inline">
+                                <button type="button" class="preset-btn-small" onclick="insertPreset(1)" title="{{ t('preset_1_title') }}">🎨</button>
+                                <button type="button" class="preset-btn-small" onclick="insertPreset(2)" title="{{ t('preset_2_title') }}">💡</button>
+                                <button type="button" class="preset-btn-small" onclick="insertPreset(3)" title="{{ t('preset_3_title') }}">✨</button>
+                                <button type="button" class="preset-btn-small" onclick="insertPreset(4)" title="{{ t('preset_4_title') }}">📊</button>
+                            </div>
+                        </div>
+                        <div id="extraRequirementsContainer" class="extra-requirements-container">
+                            <textarea id="extraRequirements" placeholder="{{ t('placeholder_extra_requirements') }}" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="inline-setting-row">
+                            <label class="inline-label">{{ t('label_output_format') }}</label>
+                            <div class="output-format-selector-inline">
+                                <label class="format-option-inline">
+                                    <input type="radio" name="outputFormat" value="url" checked>
+                                    <span>{{ t('format_url') }}</span>
+                                </label>
+                                <label class="format-option-inline">
+                                    <input type="radio" name="outputFormat" value="pdf">
+                                    <span>{{ t('format_pdf') }}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="formatBtn" class="submit-btn" onclick="formatHTML()">
+                {{ t('btn_start_beautify') }}
+            </button>
+            
+            <div id="errorMessage" class="error-message"></div>
+            
+            <div id="resultSection" class="result-section">
+                <div class="result-title">{{ t('result_success') }}</div>
+                <div class="result-link">
+                    <p id="resultHint" style="margin-bottom: 10px; color: #666;">{{ t('result_link_hint') }}</p>
+                    <a id="resultLink" href="#" target="_blank"></a>
+                </div>
+                <div class="result-actions">
+                    <button class="copy-btn" onclick="copyLink()">{{ t('btn_copy_link') }}</button>
+                    <button id="downloadBtn" class="copy-btn" style="display: none; margin-left: 10px;" onclick="downloadFile()">{{ t('btn_download') }}</button>
+                </div>
+                <!-- 隐藏的多语言提示语存储 -->
+                <div id="i18nHints" style="display: none;" 
+                     data-url-hint="{{ t('result_link_hint') }}" 
+                     data-pdf-hint="{{ t('result_pdf_hint') }}">
+                </div>
+            </div>
+            
+            <div class="tips">
+                <h3>{{ t('tips_title') }}</h3>
+                <ul>
+                    <li>{{ t('tip_1') }}</li>
+                    <li>{{ t('tip_2') }}</li>
+                    <li>{{ t('tip_3') }}</li>
+                    <li>{{ t('tip_4') }}</li>
+                    <li>{{ t('tip_5') }}</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="nav-links">
+            <a href="/">{{ t('back_to_home') }}</a>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid #e8e8e8;">
+        <a href="/" target="_self" style="text-decoration: none; color: #999; font-size: 13px; font-weight: 400; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s ease;" onmouseover="this.style.color='#667eea'" onmouseout="this.style.color='#999'">
+            <img src="/favicon.ico" alt="{{ t('icon_alt') }}" style="width: 16px; height: 16px; opacity: 0.7;"> 
+            <span>{{ t('powered_by') }}</span>
+        </a>
+    </div>
+
+</body>
+</html>
+<script src="/static/js/formatter.js"></script>
+<script>
+    function toggleLangDropdown() {
+        const dropdown = document.getElementById('langDropdown');
+        const btn = document.getElementById('langBtn');
+        
+        if (dropdown.style.display === 'none') {
+            dropdown.style.display = 'block';
+            btn.classList.add('active');
+        } else {
+            dropdown.style.display = 'none';
+            btn.classList.remove('active');
+        }
+    }
+    
+    function switchLanguage(lang) {
+        // 保存到 localStorage
+        localStorage.setItem('userLanguage', lang);
+        
+        // 更新按钮显示文本
+        const langText = lang === 'zh' ? '中文' : 'English';
+        document.getElementById('currentLangText').textContent = langText;
+        
+        // 关闭下拉菜单
+        document.getElementById('langDropdown').style.display = 'none';
+        document.getElementById('langBtn').classList.remove('active');
+        
+        // 更新选中状态
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.classList.remove('selected');
+        });
+        document.querySelector(`[data-lang="${lang}"]`).classList.add('selected');
+        
+        // 发送到后端设置 Cookie
+        fetch('/api/set-language', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({language: lang})
+        }).then(() => {
+            // 刷新页面
+            window.location.reload();
+        }).catch(err => {
+            console.error('Failed to set language:', err);
+            // 即使 API 调用失败，也刷新页面
+            window.location.reload();
+        });
+    }
+    
+    // 点击外部关闭下拉菜单
+    document.addEventListener('click', function(e) {
+        const wrapper = document.querySelector('.lang-dropdown-wrapper');
+        if (wrapper && !wrapper.contains(e.target)) {
+            document.getElementById('langDropdown').style.display = 'none';
+            document.getElementById('langBtn').classList.remove('active');
+        }
+    });
+    
+    // 页面加载时检查 localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('userLanguage');
+        const currentLang = '{{ lang }}';
+        if (savedLang && savedLang !== currentLang) {
+            // 如果 localStorage 与当前语言不一致,自动切换
+            switchLanguage(savedLang);
+        }
+    });
+    
+    // 样式风格选择器功能
+    function toggleStyleDropdown() {
+        const dropdown = document.getElementById('styleDropdown');
+        const arrow = document.querySelector('.dropdown-arrow');
+        
+        if (dropdown.style.display === 'none') {
+            dropdown.style.display = 'block';
+            arrow.style.transform = 'rotate(180deg)';
+        } else {
+            dropdown.style.display = 'none';
+            arrow.style.transform = 'rotate(0deg)';
+        }
+    }
+    
+    function selectStyle(styleValue, styleName) {
+        // 更新隐藏输入框的值
+        document.getElementById('selectedStyle').value = styleValue;
+        
+        // 更新按钮显示文本
+        document.getElementById('selectedStyleText').textContent = styleName;
+        
+        // 关闭下拉菜单
+        document.getElementById('styleDropdown').style.display = 'none';
+        document.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+        
+        // 更新选中状态
+        document.querySelectorAll('.style-option').forEach(option => {
+            option.classList.remove('selected');
+        });
+        document.querySelector(`[data-style="${styleValue}"]`).classList.add('selected');
+        
+        // 保存到 localStorage
+        localStorage.setItem('selectedStyle', styleValue);
+    }
+    
+    // 点击外部关闭下拉菜单
+    document.addEventListener('click', function(e) {
+        const wrapper = document.querySelector('.style-selector-wrapper-inline');
+        if (wrapper && !wrapper.contains(e.target)) {
+            document.getElementById('styleDropdown').style.display = 'none';
+            document.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+        }
+    });
+    
+    // 监听扩写模式和输出格式的变化并保存
+    document.addEventListener('change', function(e) {
+        if (e.target.name === 'beautyMode') {
+            localStorage.setItem('beautyMode', e.target.value);
+        }
+        if (e.target.name === 'outputFormat') {
+            localStorage.setItem('outputFormat', e.target.value);
+        }
+    });
+</script>

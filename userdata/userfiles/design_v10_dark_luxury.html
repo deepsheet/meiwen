@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2026爆火AI"小龙虾"：真正能干活的数字员工</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    
+    /* 动态渐变背景 */
+    .gradient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      opacity: 0.15;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* 大字体标题 */
+    .mega-header {
+      text-align: center;
+      margin-bottom: 120px;
+    }
+    
+    h1 {
+      font-size: clamp(4em, 10vw, 8em);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -5px;
+      animation: textGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes textGlow {
+      from { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
+      to { filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.6)); }
+    }
+    
+    .tagline {
+      font-size: 1.5em;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+    }
+    
+    /* 分屏内容 */
+    .split-content {
+      display: grid;
+      gap: 0;
+      margin-bottom: 100px;
+    }
+    
+    .content-panel {
+      padding: 60px;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.5s ease;
+      position: relative;
+    }
+    
+    .content-panel:first-child {
+      border-left: none;
+    }
+    
+    .content-panel:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .panel-number {
+      font-size: 6em;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.05);
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      line-height: 1;
+    }
+    
+    .panel-icon {
+      font-size: 4em;
+      margin-bottom: 25px;
+      display: block;
+    }
+    
+    .panel-title {
+      font-size: 2.2em;
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: white;
+      letter-spacing: -1px;
+    }
+    
+    .panel-text {
+      font-size: 1.2em;
+      line-height: 2;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .text-accent {
+      color: #fff;
+      font-weight: 700;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 2px;
+    }
+    
+    /* 引用区域 */
+    .quote-area {
+      text-align: center;
+      padding: 100px 60px;
+      margin: 100px 0;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .quote-text-huge {
+      font-size: 3em;
+      font-weight: 900;
+      line-height: 1.4;
+      color: white;
+      letter-spacing: -2px;
+    }
+    
+    /* 底部 */
+    footer {
+      text-align: center;
+      margin-top: 120px;
+    }
+    
+    .footer-link-large {
+      display: inline-block;
+      padding: 25px 70px;
+      background: white;
+      color: #0a0a0a;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.3em;
+      letter-spacing: 5px;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer-link-large::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+      transition: left 0.6s;
+    }
+    
+    .footer-link-large:hover::before {
+      left: 100%;
+    }
+    
+    .footer-link-large:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2);
+    }
+    
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 80px 25px;
+      }
+      
+      .content-panel {
+        padding: 40px 30px;
+      }
+      
+      .quote-area {
+        padding: 80px 40px;
+      }
+      
+      .quote-text-huge {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  
+  <div class="container">
+    <header class="mega-header">
+      <h1>🦞</h1>
+      <p class="tagline">AI 小龙虾</p>
+    </header>
+
+    <section class="split-content">
+      <article class="content-panel">
+        <div class="panel-number">01</div>
+        <span class="panel-icon">🚀</span>
+        <h2 class="panel-title">现象级爆火</h2>
+        <p class="panel-text">
+          2026年开春，<span class="text-accent">OpenClaw</span>彻底刷屏科技圈。从极客玩具到全民"养虾"热潮，完成现象级进化。
+        </p>
+      </article>
+
+      <article class="content-panel">
+        <div class="panel-number">02</div>
+        <span class="panel-icon">🧠</span>
+        <h2 class="panel-title">智能体本质</h2>
+        <p class="panel-text">
+          非聊天机器人，而是<span class="text-accent">开源AI智能体（Agent）</span>。如"贾维斯"般直接操作系统，执行各类任务。
+        </p>
+      </article>
+
+      <article class="content-panel">
+        <div class="panel-number">03</div>
+        <span class="panel-icon">⚡</span>
+        <h2 class="panel-title">核心价值</h2>
+        <p class="panel-text">
+          打破"只说不做"局限。<span class="text-accent">7x24小时数字员工</span>，极大提升效率，人人可用。
+        </p>
+      </article>
+
+      <article class="content-panel">
+        <div class="panel-number">04</div>
+        <span class="panel-icon">⚠️</span>
+        <h2 class="panel-title">安全提醒</h2>
+        <p class="panel-text">
+          高权限需注意<span class="text-accent">数据安全</span>，建议隔离环境部署。生产力革命才刚刚开始。
+        </p>
+      </article>
+    </section>
+
+    <div class="quote-area">
+      <p class="quote-text-huge">
+        "真正能执行任务的AI"
+      </p>
+    </div>
+
+    <footer>
+      <a href="/" class="footer-link-large">✨ POWERED BY 深表美文</a>
+    </footer>
+  </div>
+</body>
+</html>

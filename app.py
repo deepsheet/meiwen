@@ -16,9 +16,9 @@ def main():
     @returns {int} - 返回状态码，0表示成功，1表示失败
     """
     try:
-        print("调试：进入main函数")  # 添加调试打印
-        # 默认端口为8080，可通过环境变量覆盖
-        port = int(os.environ.get('PORT', 8080))
+        print("调试：进入 main 函数")  # 添加调试打印
+        # 固定使用 8009 端口（通过 start.sh 管理）
+        port = int(os.environ.get('PORT', 8009))
         host = os.environ.get('HOST', '0.0.0.0')
         
         logger.info(f"启动isheet.net自动化营销工具服务")

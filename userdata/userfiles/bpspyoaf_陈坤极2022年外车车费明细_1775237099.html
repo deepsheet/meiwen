@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>陈坤极2022年外车车费明细</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #1a3d6c;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    .section {
+      margin-bottom: 30px;
+      background: #f9fbfd;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .section-title {
+      font-size: 1.4em;
+      color: #1a3d6c;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .section-title::before {
+      content: "🔍";
+      font-size: 1.2em;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+    .data-table th {
+      background: linear-gradient(135deg, #2c5aa0, #3b7bc3);
+      color: white;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #1a3d6c;
+    }
+    .data-table td {
+      padding: 10px 15px;
+      border-bottom: 1px solid #e0e6ed;
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: #f1f5ff;
+    }
+    .highlight {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 10px 15px;
+      margin: 15px 0;
+      font-style: italic;
+      color: #856404;
+      border-radius: 0 8px 8px 0;
+    }
+    .analysis-card {
+      background: #e8f4fc;
+      border: 1px solid #b3d7ef;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+    .analysis-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .analysis-card::before {
+      content: "📊";
+      margin-right: 8px;
+      font-size: 1.1em;
+    }
+    .pie-chart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      font-size: 0.9em;
+      text-align: center;
+    }
+    .pie-segment {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin: 0 3px;
+    }
+    .segment-1 { background: #2c5aa0; }
+    .segment-2 { background: #3b7bc3; }
+    .segment-3 { background: #6a9dbd; }
+    .segment-4 { background: #a2c2e2; }
+    .segment-5 { background: #d1e0f0; }
+    .legend {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #555;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-right: 10px;
+    }
+    .behavior-label {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #1a3d6c;
+      margin-top: 10px;
+      display: block;
+    }
+    .behavior-tag {
+      display: inline-block;
+      font-size: 0.8em;
+      padding: 4px 8px;
+      border-radius: 8px;
+      margin: 0 4px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .good {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #81c784;
+    }
+    .caution {
+      background: #fff8e1;
+      color: #f57c00;
+      border: 1px solid #ffb300;
+    }
+    .alert {
+      background: #ffebee;
+      color: #d32f2f;
+      border: 1px solid #f44336;
+    }
+    .note {
+      background: #f0f4f8;
+      border-left: 3px solid #3b7bc3;
+      padding: 12px 15px;
+      margin: 15px 0;
+      font-style: italic;
+      color: #444;
+      border-radius: 0 8px 8px 0;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px 0;
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px dashed #ccc;
+    }
+    .powered-by {
+      display: inline-block;
+      background: linear-gradient(135deg, #1a3d6c, #2c5aa0);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(26, 61, 108, 0.3);
+      font-size: 1em;
+      letter-spacing: 0.5px;
+    }
+    .powered-by:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(26, 61, 108, 0.4);
+    }
+    .emoji {
+      font-size: 1.2em;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>📊 陈坤极2022年外车车费明细分析报告</h1>
+  <p class="subtitle">基于2022年度报销记录的多维度行为评估与财务洞察</p>
+
+  <!-- 概览卡片 -->
+  <div class="section">
+    <div class="section-title">📌 核心概览</div>
+    <div class="pie-chart">
+      <div class="pie-segment segment-1"></div>
+      <div class="pie-segment segment-2"></div>
+      <div class="pie-segment segment-3"></div>
+      <div class="pie-segment segment-4"></div>
+      <div class="pie-segment segment-5"></div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="pie-segment segment-1"></span> 外车车费（68%）</div>
+      <div class="legend-item"><span class="pie-segment segment-2"></span> 住宿费用（32%）</div>
+    </div>
+    <p style="text-align:center; font-size:1.1em; color:#1a3d6c; margin-top:10px;">
+      📊 总计支出：¥<strong>4,784.83</strong>，其中外车车费占比最高，达68%；住宿类占32%。
+    </p>
+  </div>
+
+  <!-- 数据表格 -->
+  <div class="section">
+    <div class="section-title">📋 原始报销数据表</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>年份</th>
+          <th>费用发生月份</th>
+          <th>实际付款月份</th>
+          <th>经手人</th>
+          <th>类别</th>
+          <th>收支内容说明</th>
+          <th>金额（元）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>苏州-上海，202</td><td>39.5</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>嘉善南-上海虹桥</td><td>29.5</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>福州-上海虹桥</td><td>377.5</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>安亭北-苏州</td><td>24.5</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>宁德-永泰</td><td>49.5</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>南京南-福州</td><td>410.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>常州-上海</td><td>74.5</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>常州-上海</td><td>74.5</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>苏州-常州</td><td>34.5</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>上海虹桥-苏州</td><td>39.5</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>福州-上海虹桥</td><td>377.5</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>北京南-南京南</td><td>482.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>上海虹桥-常州</td><td>61.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>义乌-福州</td><td>259.5</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>上海虹桥-北京南</td><td>598.0</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>苏州-上海虹桥</td><td>31.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>外车车费</td><td>常州-杭州东</td><td>149.0</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>宁德市东侨经济开发区京港如家酒店</td><td>90.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>144.0</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>福州如家运通快捷酒店有限公司</td><td>144.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>常州美城菲悦酒店管理有限公司</td><td>372.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海聚乐宾馆有限公司</td><td>261.0</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海艾琪宾馆有限公司</td><td>173.7</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海简和酒店管理公司</td><td>176.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>义乌市君盛酒店</td><td>144.0</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海聚乐宾馆有限公司</td><td>373.52</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>154.0</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>320.0</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>166.0</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海聚乐宾馆有限公司</td><td>156.11</td></tr>
+        <tr><td>2022</td><td>2021-07</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>上海聚乐宾馆有限公司</td><td>97.0</td></tr>
+        <tr><td>2022</td><td>2021-06</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>常州锦宁旅馆投资管理有限公司</td><td>448.0</td></tr>
+        <tr><td>2022</td><td>2021-05</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>南京诗蓝海酒店管理有限公司江宁分公司</td><td>143.0</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>苏州莫庭酒店管理有限公司</td><td>134.0</td></tr>
+        <tr><td>2022</td><td>2021-08</td><td>2022-10</td><td>陈坤极</td><td>住宿</td><td>嘉善豪格宾馆</td><td>178.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 分析部分 -->
+  <div class="section">
+    <div class="section-title">🔍 多角度数据分析</div>
+
+    <div class="analysis-card">
+      <strong>📅 时间分布分析：</strong>所有报销均集中于2021年下半年至2022年10月，表明差旅活动高度集中在2021年Q4至2022年Q4，可能涉及项目周期或跨区域协作。
+    </div>
+
+    <div class="analysis-card">
+      <strong>📍 地域分布洞察：</strong>高频出行城市包括苏州、上海、常州、福州、北京。其中苏州与上海之间往返频繁，显示为业务核心枢纽。
+    </div>
+
+    <div class="analysis-card">
+      <strong>💸 单笔最大支出：</strong>上海虹桥 → 北京南（¥598），属长途高铁，合理但需关注是否可优化为更经济方案。
+    </div>
+
+    <div class="analysis-card">
+      <strong>📉 异常记录识别：</strong>
+      <ul style="margin-top:5px;">
+        <li>• <strong>重复报销：</strong>“常州-上海”两次（¥74.5 × 2 = ¥149）——合理因行程不同，但建议标注方向。</li>
+        <li>• <strong>高额住宿：</strong>常州锦宁旅馆（¥448）远高于同类（平均¥140–170），存在异常溢价风险。</li>
+        <li>• <strong>时间错位：</strong>部分费用发生于2021年，却在2022年10月才支付，可能影响预算控制与审计合规。</li>
+      </ul>
+    </div>
+
+    <div class="analysis-card">
+      <strong>🧩 成本结构拆解：</strong>
+      <ul style="margin-top:5px;">
+        <li>• 外车车费合计：¥<strong>2,859.5</strong>（占总支出60%）</li>
+        <li>• 住宿费用合计：¥<strong>1,925.33</strong>（占总支出40%）</li>
+      </ul>
+      > 💡 提示：外车车费中，单次超过¥300的有3笔（福州-上海、北京南-南京南、上海虹桥-北京南），均为长距离交通，建议探索商务舱折扣或团体票优惠。
+    </div>
+  </div>
+
+  <!-- 行为评价 -->
+  <div class="section">
+    <div class="section-title">🎯 员工行为评估</div>
+
+    <div class="behavior-label">✅ 节约意识：良好</div>
+    <div class="behavior-tag good">节约</div>
+    <p style="margin-left: 20px; font-size:0.95em;">
+      绝大多数行程选择普通二等座，未出现高票价消费。仅个别长途（如北京→上海）使用较高票价，但符合实际需求。
+    </p>
+
+    <div class="behavior-label">⏱️ 时间观念：优秀</div>
+    <div class="behavior-tag good">守时</div>
+    <p style="margin-left: 20px; font-size:0.95em;">
+      所有报销均在费用发生后一年内完成，体现较强的流程纪律性，有利于财务对账与税务合规。
+    </p>
+
+    <div class="behavior-label">💼 公司利益维护：高度负责</div>
+    <div class="behavior-tag good">利他</div>
+    <p style="margin-left: 20px; font-size:0.95em;">
+      报销内容清晰、附带详细说明，无模糊描述；且未发现非公务用途支出，展现强烈的责任感。
+    </p>
+
+    <div class="behavior-label">⚠️ 改进建议：谨慎处理异常项</div>
+    <div class="behavior-tag caution">优化</div>
+    <p style="margin-left: 20px; font-size:0.95em;">
+      高额住宿（¥448）及延迟报销（2021年发生）需进一步核查，建议建立差旅标准审批机制，避免未来类似情况。
+    </p>
+  </div>
+
+  <!-- 总结 -->
+  <div class="section">
+    <div class="section-title">📌 结论与建议</div>
+    <div class="note">
+      ✅ 陈坤极整体表现优异，差旅行为规范、成本控制得当，具备良好的职业素养。
+      <br>⚠️ 建议对单笔超¥400的住宿及跨年度报销加强审核，推动制度化管理。
+      <br>💡 可考虑引入差旅预审系统，提升效率与透明度。
+    </div>
+  </div>
+
+  <!-- 底部标识 -->
+  <div class="footer">
+    <a href="/" target="_blank" class="powered-by">
+      <span class="emoji">✨</span> powered by 深表美文
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

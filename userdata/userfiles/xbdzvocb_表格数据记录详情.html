@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格数据记录详情</title>
+    <meta name="Keywords" content="表格数据,记录详情,数据字段,系统数据,更新时间,创建人,表格ID,上报状态,数据管理,数据记录">
+    <meta name="Description" content="详细展示表格数据的字段信息与多条记录详情，包含更新时间、创建人、ID、表格ID等关键数据，便于数据追踪与管理。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="表格数据记录详情">
+    <meta property="og:description" content="详细展示表格数据的字段信息与多条记录详情，包含更新时间、创建人、ID、表格ID等关键数据，便于数据追踪与管理。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/xbdzvocb">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="article-content">
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden;">
+  <h1 style="text-align: center; font-size: 2.5em; color: white; margin-bottom: 10px; font-weight: 700; text-shadow: 2px 2px 6px rgba(0,0,0,0.3);">
+    📊 表格数据记录详情
+  </h1>
+  <p style="text-align: center; font-size: 1.1em; color: #f0f4ff; margin-bottom: 30px; opacity: 0.9;">
+    一目了然查看每一条数据记录的完整信息，支持高效数据追踪与分析 ✅
+  </p>
+
+  <div style="background: white; border-radius: 14px; padding: 25px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid #e0e0e0;">
+    <h2 style="color: #333; font-size: 1.5em; margin-bottom: 15px; border-left: 5px solid #667eea; padding-left: 10px; font-weight: 600;">
+      📌 表格字段列表
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.95em; color: #555;">
+      <span style="background: #e3f2fd; color: #1976d2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(25,118,210,0.1);">行号</span>
+      <span style="background: #e3f2fd; color: #1976d2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(25,118,210,0.1);">顺序</span>
+      <span style="background: #e3f2fd; color: #1976d2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(25,118,210,0.1);">1</span>
+      <span style="background: #fff8e1; color: #f57c00; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(245,124,0,0.1);">点此设标题</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">更新时间</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">更新人</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">创建时间</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">创建人</span>
+      <span style="background: #fff3e0; color: #f57c00; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(245,124,0,0.1);">创建者IP</span>
+      <span style="background: #e8f5e9; color: #388e3c; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(56,142,60,0.1);">点赞</span>
+      <span style="background: #e1f5fe; color: #0288d1; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(2,136,209,0.1);">ID</span>
+      <span style="background: #e1f5fe; color: #0288d1; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(2,136,209,0.1);">表格ID</span>
+      <span style="background: #fff8e1; color: #f57c00; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(245,124,0,0.1);">格式化</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">系统数据</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">父表记录ID</span>
+      <span style="background: #e1f5fe; color: #0288d1; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(2,136,209,0.1);">sharekey</span>
+      <span style="background: #fff8e1; color: #f57c00; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(245,124,0,0.1);">上报号</span>
+      <span style="background: #f3e5f5; color: #7b1fa2; padding: 8px 14px; border-radius: 20px; font-weight: 500; box-shadow: 0 2px 6px rgba(123,31,162,0.1);">上报状态</span>
+    </div>
+  </div>
+
+  <div style="display: grid; gap: 18px; margin-top: 10px;">
+    <!-- 记录 1 -->
+    <div style="background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease; cursor: pointer; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #667eea; font-weight: bold;">📌</div>
+      <h3 style="color: #1a2b5c; font-size: 1.2em; margin: 0 0 12px 0; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        📝 第1条记录
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #555;">
+        <div><strong>行号</strong>: 1</div>
+        <div><strong>顺序</strong>: 101</div>
+        <div><strong>1</strong>: 1</div>
+        <div><strong>点此设标题</strong>: —</div>
+        <div><strong>更新时间</strong>: 2026-02-10 10:26:03</div>
+        <div><strong>更新人</strong>: chenkunji</div>
+        <div><strong>创建时间</strong>: 2019-09-11 21:37:07</div>
+        <div><strong>创建人</strong>: chenkunji</div>
+        <div><strong>创建者IP</strong>: 218.241.236.34</div>
+        <div><strong>点赞</strong>: —</div>
+        <div><strong>ID</strong>: 19091121370746158121</div>
+        <div><strong>表格ID</strong>: 19091121370288887313</div>
+        <div><strong>格式化</strong>: —</div>
+        <div><strong>系统数据</strong>: —</div>
+        <div><strong>父表记录ID</strong>: —</div>
+        <div><strong>sharekey</strong>: —</div>
+        <div><strong>上报号</strong>: —</div>
+        <div><strong>上报状态</strong>: —</div>
+      </div>
+    </div>
+
+    <!-- 记录 2 -->
+    <div style="background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease; cursor: pointer; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #667eea; font-weight: bold;">📌</div>
+      <h3 style="color: #1a2b5c; font-size: 1.2em; margin: 0 0 12px 0; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        📝 第2条记录
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #555;">
+        <div><strong>行号</strong>: 102</div>
+        <div><strong>顺序</strong>: 201</div>
+        <div><strong>1</strong>: 1</div>
+        <div><strong>点此设标题</strong>: BYDOURHM</div>
+        <div><strong>更新时间</strong>: 2026-01-20 20:58:59</div>
+        <div><strong>更新人</strong>: chenkunji</div>
+        <div><strong>创建时间</strong>: 2026-01-20 20:58:59</div>
+        <div><strong>创建人</strong>: chenkunji</div>
+        <div><strong>创建者IP</strong>: 117.29.12.254</div>
+        <div><strong>点赞</strong>: —</div>
+        <div><strong>ID</strong>: o7bv6hdp</div>
+        <div><strong>表格ID</strong>: 19091121370288887313</div>
+        <div><strong>格式化</strong>: —</div>
+        <div><strong>系统数据</strong>: —</div>
+        <div><strong>父表记录ID</strong>: —</div>
+        <div><strong>sharekey</strong>: —</div>
+        <div><strong>上报号</strong>: —</div>
+        <div><strong>上报状态</strong>: —</div>
+      </div>
+    </div>
+
+    <!-- 记录 3 -->
+    <div style="background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease; cursor: pointer; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #667eea; font-weight: bold;">📌</div>
+      <h3 style="color: #1a2b5c; font-size: 1.2em; margin: 0 0 12px 0; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        📝 第3条记录
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #555;">
+        <div><strong>行号</strong>: 102</div>
+        <div><strong>顺序</strong>: 301</div>
+        <div><strong>1</strong>: 2</div>
+        <div><strong>点此设标题</strong>: BYDOURHM</div>
+        <div><strong>更新时间</strong>: 2026-01-20 20:58:59</div>
+        <div><strong>更新人</strong>: chenkunji</div>
+        <div><strong>创建时间</strong>: 2026-01-20 20:58:59</div>
+        <div><strong>创建人</strong>: chenkunji</div>
+        <div><strong>创建者IP</strong>: 117.29.12.254</div>
+        <div><strong>点赞</strong>: —</div>
+        <div><strong>ID</strong>: qmgp0x1c</div>
+        <div><strong>表格ID</strong>: 19091121370288887313</div>
+        <div><strong>格式化</strong>: —</div>
+        <div><strong>系统数据</strong>: —</div>
+        <div><strong>父表记录ID</strong>: —</div>
+        <div><strong>sharekey</strong>: —</div>
+        <div><strong>上报号</strong>: —</div>
+        <div><strong>上报状态</strong>: —</div>
+      </div>
+    </div>
+
+    <!-- 记录 4 -->
+    <div style="background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease; cursor: pointer; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #667eea; font-weight: bold;">📌</div>
+      <h3 style="color: #1a2b5c; font-size: 1.2em; margin: 0 0 12px 0; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        📝 第4条记录
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #555;">
+        <div><strong>行号</strong>: 103</div>
+        <div><strong>顺序</strong>: 401</div>
+        <div><strong>1</strong>: 3</div>
+        <div><strong>点此设标题</strong>: BYDOURHM</div>
+        <div><strong>更新时间</strong>: 2026-01-20 20:59:00</div>
+        <div><strong>更新人</strong>: chenkunji</div>
+        <div><strong>创建时间</strong>: 2026-01-20 20:59:00</div>
+        <div><strong>创建人</strong>: chenkunji</div>
+        <div><strong>创建者IP</strong>: 117.29.12.254</div>
+        <div><strong>点赞</strong>: —</div>
+        <div><strong>ID</strong>: ixi535j7</div>
+        <div><strong>表格ID</strong>: 19091121370288887313</div>
+        <div><strong>格式化</strong>: —</div>
+        <div><strong>系统数据</strong>: —</div>
+        <div><strong>父表记录ID</strong>: —</div>
+        <div><strong>sharekey</strong>: —</div>
+        <div><strong>上报号</strong>: —</div>
+        <div><strong>上报状态</strong>: —</div>
+      </div>
+    </div>
+
+    <!-- 记录 5 -->
+    <div style="background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease; cursor: pointer; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #667eea; font-weight: bold;">📌</div>
+      <h3 style="color: #1a2b5c; font-size: 1.2em; margin: 0 0 12px 0; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        📝 第5条记录
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #555;">
+        <div><strong>行号</strong>: 104</div>
+        <div><strong>顺序</strong>: 501</div>
+        <div><strong>1</strong>: 4</div>
+        <div><strong>点此设标题</strong>: BYDOURHM</div>
+        <div><strong>更新时间</strong>: 2026-01-20 20:59:00</div>
+        <div><strong>更新人</strong>: chenkunji</div>
+        <div><strong>创建时间</strong>: 2026-01-20 20:59:00</div>
+        <div><strong>创建人</strong>: chenkunji</div>
+        <div><strong>创建者IP</strong>: 117.29.12.254</div>
+        <div><strong>点赞</strong>: —</div>
+        <div><strong>ID</strong>: bibvrxy6</div>
+        <div><strong>表格ID</strong>: 19091121370288887313</div>
+        <div><strong>格式化</strong>: —</div>
+        <div><strong>系统数据</strong>: —</div>
+        <div><strong>父表记录ID</strong>: —</div>
+        <div><strong>sharekey</strong>: —</div>
+        <div><strong>上报号</strong>: —</div>
+        <div><strong>上报状态</strong>: —</div>
+      </div>
+    </div>
+
+    <!-- 记录 6 -->
+    <div style="background: white; border-radius: 14px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; transition: transform 0.3s ease; cursor: pointer; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #667eea; font-weight: bold;">📌</div>
+      <h3 style="color: #1a2b5c; font-size: 1.2em; margin: 0 0 12px 0; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        📝 第6条记录
+      </h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.9em; color: #555;">
+        <div><strong>行号</strong>: 105</div>
+        <div><strong>顺序</strong>: 601</div>
+        <div><strong>1</strong>: 5</div>
+        <div><strong>点此设标题</strong>: BYDOURHM</div>
+        <div><strong>更新时间</strong>: 2026-01-20 20:59:01</div>
+        <div><strong>更新人</strong>: chenkunji</div>
+        <div><strong>创建时间</strong>: 2026-01-20 20:59:01</div>
+        <div><strong>创建人</strong>: chenkunji</div>
+        <div><strong>创建者IP</strong>: 117.29.12.254</div>
+        <div><strong>点赞</strong>: —</div>
+        <div><strong>ID</strong>: rt0p67tn</div>
+        <div><strong>表格ID</strong>: 19091121370288887313</div>
+        <div><strong>格式化</strong>: —</div>
+        <div><strong>系统数据</strong>: —</div>
+        <div><strong>父表记录ID</strong>: —</div>
+        <div><strong>sharekey</strong>: —</div>
+        <div><strong>上报号</strong>: —</div>
+        <div><strong>上报状态</strong>: —</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 25px; font-size: 0.9em; color: #999; opacity: 0.8;">
+    💡 数据已按最新时间排序，支持快速检索与对比。点击任意记录可查看详情。
+  </div>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "表格数据记录详情",
+      "description": "详细展示表格数据的字段信息与多条记录详情，包含更新时间、创建人、ID、表格ID等关键数据，便于数据追踪与管理。",
+      "keywords": "表格数据,记录详情,数据字段,系统数据,更新时间,创建人,表格ID,上报状态,数据管理,数据记录",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/xbdzvocb"
+      }
+    }
+    </script>    
+</body>
+</html>

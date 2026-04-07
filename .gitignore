@@ -16,11 +16,16 @@ ENV/
 
 # IDE
 .vscode/
+.lingma/
 .idea/
+.conda/
+
 
 # OS
 .DS_Store
 
 # Project specific
-Miniconda3-latest-MacOSX-arm64.sh
-test_blog_output.txt
+tools/Miniconda3-latest-MacOSX-arm64.sh
+
+# Debug files (optional, can be commented to track test files)
+debug/

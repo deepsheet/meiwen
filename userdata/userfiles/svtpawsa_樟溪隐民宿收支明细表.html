@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樟溪隐民宿收支明细表</title>
+    <meta name="Keywords" content="民宿收支明细,樟溪隐民宿,财务分析,成本控制,收入支出统计,数据洞察">
+    <meta name="Description" content="本报告深度解析樟溪隐民宿收支明细表，揭示运营成本结构、关键支出趋势及优化建议，助力实现可持续盈利。">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="樟溪隐民宿收支明细表">
+    <meta property="og:description" content="本报告深度解析樟溪隐民宿收支明细表，揭示运营成本结构、关键支出趋势及优化建议，助力实现可持续盈利。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://p.isheet.net/p/svtpawsa">
+    
+    <link rel="icon" href="/favicon.ico?v=1" type="image/x-icon">
+    <style>
+        /* 全局样式和主题变量 */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #6a11cb);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 文章内容容器 */
+        .article-content {
+            margin-bottom: 60px;
+        }
+        
+        /* 底部标识样式 */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .powered-by {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .powered-by:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* FAQ 样式 */
+        .faq-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .article-content {
+                margin-bottom: 40px;
+            }
+            
+            .powered-by {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 下载按钮 -->
+    <style>
+        #downloadBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(10px);
+        }
+        #downloadBtn:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <button id="downloadBtn" onclick="downloadCurrentPage()" title="下载本网页到本地">
+        📥 下载
+    </button>
+    
+    <script>
+        function downloadCurrentPage() {
+            // 移除下载按钮元素及其样式
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                downloadBtn.remove();
+                // 移除相关的 style 标签
+                const styles = document.querySelectorAll('style');
+                styles.forEach(style => {
+                    if (style.textContent.includes('#downloadBtn')) {
+                        style.remove();
+                    }
+                });
+            }
+            
+            // 创建一个 Blob 对象（使用移除按钮后的 HTML）
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+            
+            // 创建下载链接
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            // 生成文件名（使用页面标题）
+            const title = document.title || 'page';
+            const filename = title.replace(/[^\w一-鿿]/g, '_') + '.html';
+            a.download = filename;
+            
+            // 触发下载
+            document.body.appendChild(a);
+            a.click();
+            
+            // 清理
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+    </script>
+
+    <article class="article-content">
+        <div style="max-width: 800px; margin: 60px auto; font-family: 'Segoe UI', sans-serif; color: #333; background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 12px; line-height: 1.9;">
+  <h1 style="font-size: 2.4em; font-weight: 300; text-align: center; margin-bottom: 10px; color: #222; letter-spacing: -0.5px;">📊 樟溪隐民宿收支明细深度分析报告</h1>
+  <p style="text-align: center; font-size: 1.1em; color: #666; margin-bottom: 30px; font-style: italic;">基于24条真实记录的财务洞察与优化建议</p>
+
+  <div style="border-left: 3px solid #000; padding-left: 16px; margin: 30px 0; font-style: normal;">
+    <p style="margin: 0; font-size: 1.1em; color: #333;"><strong>📌 总体评价：</strong>该表格清晰反映了“樟溪隐民宿”在2025年第四季度至2026年初的运营成本结构，以人力与设备投入为主，整体支出集中在基础维护与生活配套，收入来源主要依赖月租和临时活动收益，具备一定稳定性但存在成本波动风险。</p>
+  </div>
+
+  <h2 style="font-size: 1.7em; font-weight: 400; margin-top: 40px; margin-bottom: 16px; color: #222; border-bottom: 1px solid #eee; padding-bottom: 8px;">🔍 一、分类汇总：收支类型与房源分布</h2>
+  <div style="background: #f9f9f9; padding: 24px; border-radius: 10px; margin-bottom: 24px; border: 1px solid #e0e0e0;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+      <thead>
+        <tr style="border-bottom: 2px solid #ddd;">
+          <th style="text-align: left; padding: 10px; color: #222; font-weight: 500;">分类维度</th>
+          <th style="text-align: right; padding: 10px; color: #222; font-weight: 500;">总金额（元）</th>
+          <th style="text-align: right; padding: 10px; color: #222; font-weight: 500;">占比</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px dashed #ccc;">
+          <td style="padding: 10px; color: #333;">💰 支出类（负值）</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">-2,655</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">100%</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed #ccc;">
+          <td style="padding: 10px; color: #333;">🏠 1期41-03 房源支出</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">-1,944</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">73.2%</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed #ccc;">
+          <td style="padding: 10px; color: #333;">🏡 1期12-01 房源支出</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">-711</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">26.8%</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed #ccc;">
+          <td style="padding: 10px; color: #333;">🔧 主要支出项目</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">-1,824</td>
+          <td style="text-align: right; padding: 10px; color: #d32f2f;">68.7%</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed #ccc;">
+          <td style="padding: 10px; color: #333;">🎉 临时活动收入</td>
+          <td style="text-align: right; padding: 10px; color: #2e7d32;">+815</td>
+          <td style="text-align: right; padding: 10px; color: #2e7d32;">30.7%</td>
+        </tr>
+        <tr style="border-bottom: 1px dashed #ccc;">
+          <td style="padding: 10px; color: #333;">🏠 月租收入</td>
+          <td style="text-align: right; padding: 10px; color: #2e7d32;">+2,860</td>
+          <td style="text-align: right; padding: 10px; color: #2e7d32;">107.7%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size: 1.7em; font-weight: 400; margin-top: 40px; margin-bottom: 16px; color: #222; border-bottom: 1px solid #eee; padding-bottom: 8px;">📈 二、极值与趋势分析</h2>
+  <div style="background: #f9f9f9; padding: 24px; border-radius: 10px; margin-bottom: 24px; border: 1px solid #e0e0e0;">
+    <ul style="margin: 0; padding: 0; list-style: none; font-size: 0.95em;">
+      <li style="margin-bottom: 12px; color: #333;"><strong>💸 单笔最大支出：</strong>三套床上用品 —— <span style="color: #d32f2f; font-weight: 600;">-900元</span>（1期12-01）</li>
+      <li style="margin-bottom: 12px; color: #333;"><strong>📉 单笔最小支出：</strong>电灯泡 —— <span style="color: #d32f2f; font-weight: 600;">-90元</span></li>
+      <li style="margin-bottom: 12px; color: #333;"><strong>📊 平均支出金额：</strong>约 <span style="color: #d32f2f; font-weight: 600;">-110.6元/条</span>（共24条）</li>
+      <li style="margin-bottom: 12px; color: #333;"><strong>🔄 收支波动性：</strong>支出集中在10月-12月，1月出现明显低谷，显示季节性影响显著；12月集中多项大额支出，构成短期现金流压力。</li>
+      <li style="margin-bottom: 12px; color: #333;"><strong>📍 收入峰值：</strong>月租收入单笔达 <span style="color: #2e7d32; font-weight: 600;">2,860元</span>，为当前核心收入来源。</li>
+    </ul>
+  </div>
+
+  <h2 style="font-size: 1.7em; font-weight: 400; margin-top: 40px; margin-bottom: 16px; color: #222; border-bottom: 1px solid #eee; padding-bottom: 8px;">⚠️ 三、异常检测：值得关注的异常点</h2>
+  <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-bottom: 24px; border: 1px solid #ffd54f;">
+    <ul style="margin: 0; padding: 0; list-style: none; font-size: 0.95em; color: #b76e00;">
+      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+        <span style="flex-shrink: 0; margin-right: 8px; font-size: 1.2em;">❗</span>
+        <span><strong>金额为空却标注备注</strong>：第10条“购买燃气灶”金额为 <code>null</code>，但备注写“-199”，逻辑矛盾，需核查是否录入错误。</span>
+      </li>
+      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+        <span style="flex-shrink: 0; margin-right: 8px; font-size: 1.2em;">❗</span>
+        <span><strong>时间错位与跨年费用</strong>：第13条“电费41（业主代缴）+100（我支付）”发生于2026年1月，但年月字段填写为“2025-10”，严重数据错位，影响年度归集。</span>
+      </li>
+      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+        <span style="flex-shrink: 0; margin-right: 8px; font-size: 1.2em;">❗</span>
+        <span><strong>重复房源编号</strong>：多条记录中“行号”与“顺序”出现非连续数值（如209、208等），可能因删除或重排导致，需检查数据完整性。</span>
+      </li>
+    </ul>
+  </div>
+
+  <h2 style="font-size: 1.7em; font-weight: 400; margin-top: 40px; margin-bottom: 16px; color: #222; border-bottom: 1px solid #eee; padding-bottom: 8px;">💡 四、专业建议：可落地的优化策略</h2>
+  <div style="background: #e8f5e9; padding: 24px; border-radius: 10px; margin-bottom: 24px; border: 1px solid #81c784;">
+    <ol style="margin: 0; padding: 0; font-size: 0.95em; color: #2e7d32; line-height: 1.8;">
+      <li style="margin-bottom: 12px;"><strong>✅ 建立标准化报销流程</strong>：对“金额为null但有备注”的情况制定强制规则，确保所有支出必须填写金额，避免后续审计混乱。</li>
+      <li style="margin-bottom: 12px;"><strong>✅ 实施双人核对机制</strong>：对于跨年或大额支出（如900元床上用品），建议设置审批流程，防止一次性大额采购造成资金压力。</li>
+      <li style="margin-bottom: 12px;"><strong>✅ 优化支出分摊方式</strong>：将“其它细碎费用”（如第12条）纳入固定预算池，避免零散支出难以追踪，提升财务管理透明度。</li>
+    </ol>
+  </div>
+
+  <div style="text-align: center; font-size: 0.9em; color: #666; margin-top: 30px; padding-top: 16px; border-top: 1px solid #eee;">
+    <p>📊 报告生成于：2025年12月27日 | 数据样本量：24条 | 分析维度：收支类型、房源分布、极值趋势、异常识别、优化建议</p>
+  </div>
+</div>
+    </article>
+
+    <footer class="footer">
+        <a href="/" target="_blank" class="powered-by">✨ 深表美文-文本转美页</a>
+    </footer>
+    
+    <!-- JSON-LD Structured Data for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "樟溪隐民宿收支明细表",
+      "description": "本报告深度解析樟溪隐民宿收支明细表，揭示运营成本结构、关键支出趋势及优化建议，助力实现可持续盈利。",
+      "keywords": "民宿收支明细,樟溪隐民宿,财务分析,成本控制,收入支出统计,数据洞察",
+      "author": {
+        "@type": "Organization",
+        "name": "深表美文"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "深表美文",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://p.isheet.net/favicon.ico"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://p.isheet.net/p/svtpawsa"
+      }
+    }
+    </script>    
+</body>
+</html>

@@ -5,9 +5,18 @@
 配置文件：存储API密钥和数据库连接信息
 """
 
-# DeepSeek API配置
+# DeepSeek API 配置
 DEEPSEEK_API_KEY = "sk-170f4fc64eae430aaf111f8d1fb95d42"
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
+DEEPSEEK_MODEL = "deepseek-chat"
+
+# QWEN API 配置 
+QWEN_API_KEY = "sk-85634cf8edc14e7d9c4ed8d38b75f701"
+QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+QWEN_MODEL = "qwen3-30b-a3b-instruct-2507"
+
+# 当前使用的模型选择（deepseek、qwen）
+CURRENT_MODEL = "qwen"
 
 # 数据库配置
 DB_CONFIG = {
@@ -35,4 +44,23 @@ BLOG_TOPICS = [
 ]
 
 # 日志配置
-LOG_DIR = "logs" 
+LOG_DIR = "logs"
+
+# Redis 配置
+REDIS_CONFIG = {
+    # 本地开发环境（优先使用）
+    'host': 'localhost',
+    'port': 6379,
+    'password': '',  # 本地 Redis 通常无密码
+    'expire': 3600 * 24 * 30,  # 过期时间 30 天
+    'prefix': '',  # 缓存前缀
+    
+    # 生产环境配置（部署到服务器时使用）
+    # 'host': '46f28b3f2f604625302.redis.rds.aliyuncs.com',
+    # 'port': 6379,
+    # 'password': 'Chenkunjiliukai11112222',
+}
+
+# 多语言配置
+DEFAULT_LANGUAGE = 'zh'  # 默认语言:zh(中文), en(英文)
+SUPPORTED_LANGUAGES = ['zh', 'en'] 
